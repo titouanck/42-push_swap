@@ -6,6 +6,10 @@ INC = -I inc/ -I libft
 LIBFTPATH = -L libft -lft
 LIBS = ${INC} ${LIBFTPATH}
 
+# NUMBERS = 3 2 1
+NUMBERS = 4 42 8 23 15 16
+# NUMBERS = 1
+
 EXEC = push_swap
 CC = cc
 CFLAGS =# -Wall -Werror -Wextra
@@ -21,7 +25,13 @@ all:	${EXEC}
 
 run: all
 	rm -f ${OBJS} {EXEC}
-	./push_swap 4 42 8 23 15 16
+	./push_swap ${NUMBERS}
+	./push_swap ${NUMBERS} | ./checker_linux ${NUMBERS}
+
+run_macos: all
+	rm -f ${OBJS} {EXEC}
+	./push_swap ${NUMBERS}
+	./push_swap ${NUMBERS} | ./checker_macos ${NUMBERS}
 
 clean:	
 		+$(MAKE) -C libft clean

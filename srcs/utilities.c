@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:56:16 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/03 04:21:13 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:54:46 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,18 @@ long	find_biggest(t_pushSwap piles, long *pile)
 		i++;
 	}
 	return (biggest);
+}
+
+int	pile_size(t_pushSwap piles, long *pile)
+{
+	int	i;
+
+	i = 0;
+	while (i < piles.size)
+	{
+		if (pile[i] != EMPTY)
+			break ;
+		i++;
+	}
+	return (piles.size - i);
 }

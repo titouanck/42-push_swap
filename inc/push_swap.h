@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/03 04:21:35 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/03 14:34:24 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_inPile
 {
 	long	smallest;
 	long	biggest;
+	int		elems;
 }			t_inPile;
 
 
@@ -49,12 +50,17 @@ int		rev_rotate_ab(t_pushSwap piles);
 int		rev_rotate_a(t_pushSwap piles);
 int		rev_rotate_b(t_pushSwap piles);
 
-t_pushSwap	get_piles(char **args, int size);
+/* Algorithm */
+void	algo_2_elements_a(t_pushSwap piles);
+void	algo_2_elements_b(t_pushSwap piles);
+void	algo_3_elements_a(t_pushSwap piles);
+void	algo_3_elements_b(t_pushSwap piles);
 
 /* Utilities */
+t_pushSwap	get_piles(char **args, int size);
 void		print_piles(t_pushSwap piles);
 void		ft_swap(long *a, long *b);
 long		find_smallest(t_pushSwap piles, long *pile);
 long		find_biggest(t_pushSwap piles, long *pile);
-
+int			pile_size(t_pushSwap piles, long *pile);
 #endif
