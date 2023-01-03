@@ -6,13 +6,13 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:31:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/02 18:14:54 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/03 04:08:41 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_pushSwap piles)
+int	swap_a(t_pushSwap piles)
 {
 	int	i;
 
@@ -21,10 +21,12 @@ void	swap_a(t_pushSwap piles)
 		i++;
 	if (i + 1 < piles.size)
 		ft_swap(&((piles.a)[i]), &((piles.a)[i + 1]));
-	ft_printf("sa\n");
+	else
+		return (0);
+	return (ft_printf("sa\n"), 1);
 }
 
-void	swap_b(t_pushSwap piles)
+int	swap_b(t_pushSwap piles)
 {
 	int	i;
 
@@ -33,10 +35,12 @@ void	swap_b(t_pushSwap piles)
 		i++;
 	if (i + 1 < piles.size)
 		ft_swap(&((piles.b)[i]), &((piles.b)[i + 1]));
-	ft_printf("sb\n");
+	else
+		return (0);
+	return (ft_printf("sb\n"), 1);
 }
 
-void	swap_ab(t_pushSwap piles)
+int	swap_ab(t_pushSwap piles)
 {
 	int	i;
 
@@ -50,5 +54,5 @@ void	swap_ab(t_pushSwap piles)
 		i++;
 	if (i + 1 < piles.size)
 		ft_swap(&((piles.b)[i]), &((piles.b)[i + 1]));
-	ft_printf("ss\n");
+	return (ft_printf("ss\n"), 1);
 }

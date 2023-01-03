@@ -6,13 +6,13 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:32:07 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/02 18:13:23 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/03 04:19:17 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_pushSwap piles)
+int	push_a(t_pushSwap piles)
 {
 	int	i;
 	int	j;
@@ -21,17 +21,17 @@ void	push_a(t_pushSwap piles)
 	while ((piles.b)[i] == EMPTY && i < piles.size)
 		i++;
 	if (i >= piles.size)
-		return ;
+		return (0);
 	j = 0;
-	while ((piles.a)[j + 1] == EMPTY && j < piles.size)
+	while ((piles.a)[j + 1] == EMPTY && j + 1 < piles.size)
 		j++;
 	if (j >= piles.size)
-		return ;
+		return (0);
 	ft_swap(&((piles.b)[i]), &((piles.a)[j]));
-	ft_printf("pa\n");
+	return (ft_printf("pa\n"), 1);
 }
 
-void	push_b(t_pushSwap piles)
+int	push_b(t_pushSwap piles)
 {
 	int	i;
 	int	j;
@@ -40,12 +40,12 @@ void	push_b(t_pushSwap piles)
 	while ((piles.a)[i] == EMPTY && i < piles.size)
 		i++;
 	if (i >= piles.size)
-		return ;
+		return (0);
 	j = 0;
-	while ((piles.b)[j + 1] == EMPTY && j < piles.size)
+	while ((piles.b)[j + 1] == EMPTY && j + 1 < piles.size)
 		j++;
 	if (j >= piles.size)
-		return ;
+		return (0);
 	ft_swap(&((piles.a)[i]), &((piles.b)[j]));
-	ft_printf("pa\n");
+	return (ft_printf("pb\n"), 1);
 }

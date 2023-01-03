@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:56:16 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/02 18:14:52 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/03 04:21:13 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,36 @@ void	print_piles(t_pushSwap piles)
 	ft_printf("-\t-\n");
 	ft_printf("a\tb\n");
 	ft_printf("---===---\n");
+}
+
+long	find_smallest(t_pushSwap piles, long *pile)
+{
+	long	smallest;
+	int		i;
+
+	smallest = EMPTY;
+	i = 0;
+	while (i < piles.size)
+	{
+		if (pile[i] < smallest && pile[i] != EMPTY)
+			smallest = pile[i];
+		i++;
+	}
+	return (smallest);
+}
+
+long	find_biggest(t_pushSwap piles, long *pile)
+{
+	long	biggest;
+	int		i;
+
+	biggest = -EMPTY;
+	i = 0;
+	while (i < piles.size)
+	{
+		if (pile[i] > biggest && pile[i] != EMPTY)
+			biggest = pile[i];
+		i++;
+	}
+	return (biggest);
 }
