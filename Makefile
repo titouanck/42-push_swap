@@ -22,9 +22,9 @@ LIBS = ${INC} ${LIBFTPATH}
 # NUMBERS = -2147483648 2147483647 -2147483647
 
 # Random
+NUMBERS = 4 42 8 23 15 16
 # NUMBERS = 1 5 2 4 3
 # NUMBERS = 5 0 6 2 -45 -76 7 9 -5 -89 -23 -6 1
-# NUMBERS = 4 42 8 23 15 16
 # NUMBERS = 4 8 15 16 23 42 -42
 # NUMBERS = 1
 
@@ -43,6 +43,14 @@ all:	${EXEC}
 
 operations:
 	./push_swap ${NUMBERS} | wc -l
+
+visualisation: all
+		+$(MAKE) -C libft
+		clear
+		gcc -o .visualisation ${CFLAGS} -D VISUALISATION=1 ${SRCS} ${LIBS}
+		./.visualisation ${NUMBERS}
+		./push_swap ${NUMBERS} | wc -l
+		rm -f ${OBJS} {EXEC} .visualisation
 
 run: all
 	rm -f ${OBJS} {EXEC}
