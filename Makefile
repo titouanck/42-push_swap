@@ -52,6 +52,14 @@ visualisation: all
 		./push_swap ${NUMBERS} | wc -l
 		rm -f ${OBJS} {EXEC} .visualisation
 
+manual:
+		+$(MAKE) -C libft
+		clear
+		gcc -o push_swap ${CFLAGS} -D VISUALISATION=1 -D MANUAL=1 ${SRCS} ${LIBS}
+		./push_swap ${NUMBERS} | wc -l
+		./push_swap ${NUMBERS}
+		rm -f ${OBJS} {EXEC}
+
 run: all
 	rm -f ${OBJS} {EXEC}
 	./push_swap ${NUMBERS}
