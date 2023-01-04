@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:23:21 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 19:35:19 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/05 00:49:17 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,29 @@
 
 #ifdef MANUAL
 
-int	manual_push_swap(int **args, int size)
+int	manual_push_swap(char **args, int size)
 {
-	char		str[3];
+	char		str[100];
 	int			readed;
 	t_pushSwap	piles;
 
 	piles = get_piles(args, size);
 	if (!(piles.a) || !(piles.b))
 		return (0);
+	print_piles(piles);
 	while (1)
 	{
-		readed = read(0, &str, 2);
+		if (pile_sorted(piles, piles.a))
+		{
+			ft_printf("La pile est triée.\n");
+			break ;
+		}
+		readed = read(0, str, 3);
 		if (readed == 2)
 			str[2] = '\0';
-		else if (readed == 0)
+		if (readed <= 0)
 			break ;
-		if (str[0] == 's' && str[1] == 'a')
+		else if (str[0] == 's' && str[1] == 'a')
 			swap_a(piles);
 		else if (str[0] == 's' && str[1] == 'b')
 			swap_b(piles);
@@ -40,7 +46,18 @@ int	manual_push_swap(int **args, int size)
 			push_a(piles);
 		else if (str[0] == 'p' && str[1] == 'b')
 			push_b(piles);
-		// ETC
+		else if (str[0] == 'r' && str[1] == 'a')
+			rotate_a(piles);
+		else if (str[0] == 'r' && str[1] == 'b')
+			rotate_b(piles);
+		else if (str[0] == 'r' && str[1] == 'r' && str[2] != 'r')
+			rotate_ab(piles);
+		else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
+			rev_rotate_a(piles);
+		else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b')
+			rev_rotate_b(piles);
+		else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
+			rev_rotate_ab(piles);
 		else
 			ft_printf("Operations:\n \
 			sa,\tsb,\tss,\n \

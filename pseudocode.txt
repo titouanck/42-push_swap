@@ -32,7 +32,3 @@ Boucle tant que la pile b n'est pas vide:
 	>> REV_ROTATE_B <<
 	>> PUSH_A <<
 	>> ROTATE_A <<
-
-/* Fonctions dont on va avoir besoin */
-			Définir l'élément le plus proche du top dans la pile a.
-			Mettre cet élément en haut de la pile a.
