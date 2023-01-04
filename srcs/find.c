@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 14:07:40 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 15:27:59 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:38:11 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,34 @@ long	find_smallest(t_pushSwap piles, long *pile)
 		i++;
 	}
 	return (smallest);
+}
+
+long	*find_pile_start(t_pushSwap piles, long *pile)
+{
+	int		i;
+
+	i = 0;
+	while (i < piles.size)
+	{
+		if (pile[i] != EMPTY)
+			return(pile + i);
+		i++;
+	}
+	return (NULL);
+}
+
+long	find_elem_on_top(t_pushSwap piles, long *pile)
+{
+	int		i;
+
+	i = 0;
+	while (i < piles.size)
+	{
+		if (pile[i] != EMPTY)
+			return(pile[i]);
+		i++;
+	}
+	return (EMPTY);
 }
 
 long	find_sec_smallest(t_pushSwap piles, long *pile)

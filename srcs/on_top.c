@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 13:54:24 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 16:37:27 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:36:44 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,26 @@ static int	in_superior_part(t_pushSwap piles, long *pile, long elem)
 	return (0);
 }
 
+void	place_element_on_top_a(t_pushSwap piles, long nbr)
+{
+	int		i;
+	long	*pile;
+
+	i = 0;
+	while ((piles.a)[i] == EMPTY)
+		i++;
+	pile = (piles.a + i);
+	if (i >= piles.size)
+		return ;
+	while (*pile != nbr)
+	{
+		if (in_superior_part(piles, piles.a, nbr))
+			rotate_a(piles);
+		else
+			rev_rotate_a(piles);
+	}
+}
+
 void	smallest_on_top_a(t_pushSwap piles, long *pile, t_inPile number)
 {
 	number.sec_smallest = find_sec_smallest(piles, piles.a);
@@ -51,7 +71,20 @@ void	smallest_on_top_a(t_pushSwap piles, long *pile, t_inPile number)
 			rotate_a(piles);
 		else
 			rev_rotate_a(piles);
-		
+	}
+}
+
+void	biggest_on_top_a(t_pushSwap piles, long *pile, t_inPile number)
+{
+	number.sec_biggest = find_sec_biggest(piles, piles.a);
+	while (*pile != number.biggest)
+	{
+		if (pile[1] == number.biggest && pile[0] == number.sec_biggest)
+			swap_a(piles);
+		else if (in_superior_part(piles, piles.a, number.biggest))
+			rotate_a(piles);
+		else
+			rev_rotate_a(piles);
 	}
 }
 

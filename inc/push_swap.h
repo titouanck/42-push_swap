@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 16:16:54 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:35:13 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ typedef struct s_pushSwap
 
 typedef struct s_inPile
 {
+	long	*ptr;
+	long	on_top;
 	long	to_find;
+	long	nearest;
 	long	smallest;
 	long	sec_smallest;
 	long	biggest;
@@ -54,8 +57,12 @@ int			rev_rotate_a(t_pushSwap piles);
 int			rev_rotate_b(t_pushSwap piles);
 
 /* Missions */
+long		*find_pile_start(t_pushSwap piles, long *pile);
+long		find_nearest_element_a(t_pushSwap piles, t_inPile nbr);
+void		place_element_on_top_a(t_pushSwap piles, long nbr);
 void		smallest_on_top_a(t_pushSwap piles, long *pile, t_inPile number);
 int			ssmallest_on_top_a(t_pushSwap piles, long *pile, t_inPile number);
+void		biggest_on_top_a(t_pushSwap piles, long *pile, t_inPile number);
 void		biggest_on_top_b(t_pushSwap piles, long *pile, t_inPile number);
 
 /* Algorithm */
@@ -68,6 +75,7 @@ void		algo_3_elements_b(t_pushSwap piles);
 t_pushSwap	get_piles(char **args, int size);
 void		print_piles(t_pushSwap piles);
 void		ft_swap(long *a, long *b);
+long		find_elem_on_top(t_pushSwap piles, long *pile);
 long		find_smallest(t_pushSwap piles, long *pile);
 long		find_sec_smallest(t_pushSwap piles, long *pile);
 long		find_biggest(t_pushSwap piles, long *pile);
