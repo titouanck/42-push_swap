@@ -20,7 +20,6 @@ Boucle tant que la pile a n'est pas triée ou vide:
 		Sinon si cet élément était le deuxième plus grand:
 			On met l'élément le plus grand en haut de la pile.
 			>> PUSH_B <<
-			>> SWAP_B <<
 			>> ROTATE_B <<
 			>> ROTATE_B <<
 Boucle tant que la pile b n'est pas vide :
