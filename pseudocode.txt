@@ -5,7 +5,7 @@ Boucle tant que la pile a n'est pas triée ou vide:
 		Algorithme correspondant.
 		BREAK ;
 	Sinon
-		On définit l'élément le plus proche dans la pile 
+		On définit l'élément le plus proche dans la pile \
 		{plus petit, deuxième plus petit, plus grand, deuxième plus grand}.
 		On met ce élément en haut de la pile.
 		>> PUSH_B <<
@@ -23,10 +23,12 @@ Boucle tant que la pile a n'est pas triée ou vide:
 			>> ROTATE_B <<
 			>> ROTATE_B <<
 Boucle tant que la pile b n'est pas vide :
-	Si l'élément en haut de b est plus grand que celui en haut de a:
+	Si a n'est pas vide \
+	& que l'élément en haut de b est plus grand que celui en haut de a:
 		BREAK ;
 	Sinon
 		>> PUSH_A <<
 Boucle tant que la pile b n'est pas vide:
 	>> REV_ROTATE_B <<
 	>> PUSH_A <<
+	>> ROTATE_A <<
