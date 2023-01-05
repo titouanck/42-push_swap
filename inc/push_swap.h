@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 18:35:13 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:45:53 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void		biggest_on_top_a(t_pushSwap piles, long *pile, t_inPile number);
 void		biggest_on_top_b(t_pushSwap piles, long *pile, t_inPile number);
 
 /* Algorithm */
+void		algorithm_djimo(t_pushSwap piles);
 void		algo_2_elements_a(t_pushSwap piles);
 void		algo_2_elements_b(t_pushSwap piles);
 void		algo_3_elements_a(t_pushSwap piles);
@@ -73,6 +74,8 @@ void		algo_3_elements_b(t_pushSwap piles);
 
 /* Utilities */
 t_pushSwap	get_piles(char **args, int size);
+void		define_properties_a(t_pushSwap piles, t_inPile *a);
+void		define_properties_b(t_pushSwap piles, t_inPile *b);
 void		print_piles(t_pushSwap piles);
 void		ft_swap(long *a, long *b);
 long		find_elem_on_top(t_pushSwap piles, long *pile);

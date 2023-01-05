@@ -1,0 +1,15 @@
+Algorithm name : Exsator
+
+PAS ENCORE IMPLANTÉ !
+
+Boucle tant que la pile a n'est ni triée ni vide:
+	Créer un groupe avec les 10 plus petits éléments restants.
+//	Boucle tant qu'il reste des chemins possibles (+ de 3628800) pour déplacer ces éléments dans la pile b:
+//		Si le chemin actuel est le plus rapide : retenir ce chemin.
+//	Exécuter le chemin retenu.
+	Boucle tant qu'il reste un de ces élément a déplacer dans la pile b:
+		Mettre l'élément au top.
+		>> PUSH_B <<
+Boucle tant que la pile b n'est pas vide:
+	Mettre le plus grand élément de la pile b en haut.
+	>> PUSH_A <<

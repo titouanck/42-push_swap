@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:23:21 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/05 00:49:17 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:43:14 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,28 @@ int	manual_push_swap(char **args, int size)
 {
 	char		str[100];
 	int			readed;
+	int			count;
 	t_pushSwap	piles;
 
+	count = 0;
 	piles = get_piles(args, size);
 	if (!(piles.a) || !(piles.b))
 		return (0);
 	print_piles(piles);
 	while (1)
 	{
-		if (pile_sorted(piles, piles.a))
+		if (pile_sorted(piles, piles.a) && pile_size(piles, piles.b) == 0)
 		{
-			ft_printf("La pile est triée.\n");
+			if (count == 0)
+				ft_printf("La pile est triée.\n");
+			else if (count == 1)
+				ft_printf("La pile a été triée en %d coup.\n", count);
+			else
+				ft_printf("La pile a été triée en %d coups.\n", count);
 			break ;
 		}
-		readed = read(0, str, 3);
+		ft_printf("\n$> ");
+		readed = read(0, str, 99);
 		if (readed == 2)
 			str[2] = '\0';
 		if (readed <= 0)
@@ -50,7 +58,7 @@ int	manual_push_swap(char **args, int size)
 			rotate_a(piles);
 		else if (str[0] == 'r' && str[1] == 'b')
 			rotate_b(piles);
-		else if (str[0] == 'r' && str[1] == 'r' && str[2] != 'r')
+		else if (str[0] == 'r' && str[1] == 'r' && str[2] == '\0')
 			rotate_ab(piles);
 		else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
 			rev_rotate_a(piles);
@@ -58,12 +66,17 @@ int	manual_push_swap(char **args, int size)
 			rev_rotate_b(piles);
 		else if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
 			rev_rotate_ab(piles);
+		else if (ft_strncmp(str, "reset\n", ft_strlen("reset\n") + 1) == 0)
+		{
+			ft_printf("Soon..\n");
+			count--;
+		}
 		else
-			ft_printf("Operations:\n \
-			sa,\tsb,\tss,\n \
-			pa,\tpb,\t\n \
-			ra,\trb,\trr,\n \
-			rra,\trrb,\trrr\n");
+		{
+			ft_printf("Not a valid operation.\n");
+			count--;			
+		}
+		count++;
 	}
 	return (free(piles.a), free(piles.b), 1);
 }
