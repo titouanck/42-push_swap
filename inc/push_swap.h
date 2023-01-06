@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/06 04:07:23 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/06 06:14:45 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@
 # define ERR_DUPLICATEARGS "push_swap: duplicate arguments.\n"
 
 # define EMPTY 4815162342
-
-typedef struct s_dewey
-{
-	int		in_valid_order;
-	long	first_nbr;
-	long	*out;
-}			t_dewey;
 
 typedef struct s_pushSwap
 {
