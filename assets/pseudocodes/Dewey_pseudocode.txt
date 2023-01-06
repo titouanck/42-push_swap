@@ -4,15 +4,14 @@ PAS ENCORE IMPLANTÉ
 
 var_I = 0;
 Tant que var_I est inférieur a <nombre d'éléments>:
+	var_DANS-LE-BON-ORDRE = -var_I;
+	var_LAST-NUMBER = <Nombre plus petit que le minimum possible>;
 	var_J = 0;
 	Tant que var_J est inférieur a <nombre d'éléments>:
 		(Situation: On pars du haut de la pile a - var_J éléments)
-		var_DANS-LE-BON-ORDRE = -var_I;
-		var_LAST-NUMBER = <Nombre plus petit que le minimum possible>;
-		while j est inférieur a <nombre d'éléments>:
-			if pile_a[var_J] > var_LAST-NUMBER:
-				var_DANS-LE-BON-ORDRE += 1;
-				var_LAST-NUMBER = pile_a[var_J];
+		if pile_a[var_J] > var_LAST-NUMBER:
+			var_DANS-LE-BON-ORDRE += 1;
+			var_LAST-NUMBER = pile_a[var_J];
 		j++;
 	Si est DANS-LE-BON-ORDRE est supérieur a celui des autres possibilitées deja effectuees:
 		Garder en memoire ce point de départ.

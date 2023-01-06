@@ -61,10 +61,10 @@ run: all
 	rm -f ${OBJS} ${EXEC}
 
 run_macos: all
-	rm -f ${OBJS} ${EXEC}
 	./push_swap ${NUMBERS}
 	./push_swap ${NUMBERS} | ./checker_Mac ${NUMBERS}
 	./push_swap ${NUMBERS} | wc -l
+	rm -f ${OBJS} ${EXEC}
 
 test: all
 	echo "=======> RESULTS <=======" > .test_results
@@ -110,38 +110,38 @@ test: all
 
 test_macos: all
 	echo "=======> RESULTS <=======" > .test_results
-	echo -n "1\t|  " >> .test_results
-	./push_swap ${1_NUMBERS} | ./checker_Mac ${1_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "1: " >> .test_results
+	./push_swap ${1_NUMBERS} | ./checker_Mac ${1_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${1_NUMBERS} | wc -l >> .test_results
-	echo -n "3\t|  " >> .test_results
-	./push_swap ${3_NUMBERS} | ./checker_Mac ${3_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "" >> .test_results
+	echo "3: " >> .test_results
+	./push_swap ${3_NUMBERS} | ./checker_Mac ${3_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${3_NUMBERS} | wc -l >> .test_results
-	echo -n "5\t|  " >> .test_results
-	./push_swap ${5_NUMBERS} | ./checker_Mac ${5_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "" >> .test_results
+	echo "5: " >> .test_results
+	./push_swap ${5_NUMBERS} | ./checker_Mac ${5_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${5_NUMBERS} | wc -l >> .test_results
-	echo -n "10\t|  " >> .test_results
-	./push_swap ${10_NUMBERS} | ./checker_Mac ${10_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "" >> .test_results
+	echo "10: " >> .test_results
+	./push_swap ${10_NUMBERS} | ./checker_Mac ${10_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${10_NUMBERS} | wc -l >> .test_results
-	echo -n "15\t|  " >> .test_results
-	./push_swap ${15_NUMBERS} | ./checker_Mac ${15_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "" >> .test_results
+	echo "15: " >> .test_results
+	./push_swap ${15_NUMBERS} | ./checker_Mac ${15_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${15_NUMBERS} | wc -l >> .test_results
-	echo -n "50\t|  " >> .test_results
-	./push_swap ${50_NUMBERS} | ./checker_Mac ${50_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "" >> .test_results
+	echo "50: " >> .test_results
+	./push_swap ${50_NUMBERS} | ./checker_Mac ${50_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${50_NUMBERS} | wc -l >> .test_results
-	echo -n "100\t|  " >> .test_results
-	./push_swap ${100_NUMBERS} | ./checker_Mac ${100_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "" >> .test_results
+	echo "100: " >> .test_results
+	./push_swap ${100_NUMBERS} | ./checker_Mac ${100_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${100_NUMBERS} | wc -l >> .test_results
-	echo -n "1000\t|  " >> .test_results
-	./push_swap ${1000_NUMBERS} | ./checker_Mac ${1000_NUMBERS} | tr '\n' ' '>> .test_results
-	echo -n " | " >> .test_results
+	echo "" >> .test_results
+	echo "1000: " >> .test_results
+	./push_swap ${1000_NUMBERS} | ./checker_Mac ${1000_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${1000_NUMBERS} | wc -l >> .test_results
+	echo "" >> .test_results
 	clear
 	cat .test_results
 	rm -f ${OBJS} ${EXEC} .test_results

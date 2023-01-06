@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:43:00 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/02 18:14:42 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/05 22:27:21 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ t_pushSwap	get_piles(char **args, int size)
 	if (!piles.b)
 		return (free(piles.a), piles);
 	piles.size = size * 2;
+	piles.elems = size;
 	return (piles);
 }
