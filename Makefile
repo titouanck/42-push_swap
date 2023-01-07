@@ -20,8 +20,8 @@ INTMAXMIN_NUMBERS = -2147483648 2147483647 -2147483647
 LOST_NUMBERS = 4 42 8 23 15 16
 NEGATIVE_NUMBERS = 5 0 6 2 -45 -76 7 9 -5 -89 -23 -6 1
 
-NUMBERS = 4 5 6 1 2 3 7 8 9
-# NUMBERS = ${LOST_NUMBERS}
+# NUMBERS = 3 1 2 4
+NUMBERS = ${100_NUMBERS}
 
 EXEC = push_swap
 CC = cc
@@ -137,6 +137,10 @@ test_macos: all
 	echo "100: " >> .test_results
 	./push_swap ${100_NUMBERS} | ./checker_Mac ${100_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${100_NUMBERS} | wc -l >> .test_results
+	echo "" >> .test_results
+	echo "500: " >> .test_results
+	./push_swap ${500_NUMBERS} | ./checker_Mac ${500_NUMBERS} | tr '\n' '\t'>> .test_results
+	./push_swap ${500_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
 	echo "1000: " >> .test_results
 	./push_swap ${1000_NUMBERS} | ./checker_Mac ${1000_NUMBERS} | tr '\n' '\t'>> .test_results

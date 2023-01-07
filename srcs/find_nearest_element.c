@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:45:19 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/05 17:00:43 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:34:12 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,30 @@ long	find_nearest_element_a(t_pushSwap piles, t_inPile nbr)
 			return ((piles.a)[i]);
 		else if ((piles.a)[j] == nbr.sec_smallest)
 			return ((piles.a)[j]);
+		else if (i + 1 < piles.size && (piles.a)[i + 1] == nbr.smallest)
+			return ((piles.a)[i + 1]);
+		else if (j - 1 >= 0 && (piles.a)[j - 1] == nbr.smallest)
+			return ((piles.a)[j - 1]);
 		else if (i + 1 < piles.size && (piles.a)[i + 1] == nbr.sec_smallest)
 			return ((piles.a)[i + 1]);
 		else if (j - 1 >= 0 && (piles.a)[j - 1] == nbr.sec_smallest)
 			return ((piles.a)[j - 1]);
-		else if ((piles.a)[i] == nbr.biggest)
+		else if (nbr.elems > 10 && (piles.a)[i] == nbr.biggest)
 			return ((piles.a)[i]);
-		else if ((piles.a)[j] == nbr.biggest)
+		else if (nbr.elems > 10 && (piles.a)[j] == nbr.biggest)
 			return ((piles.a)[j]);
-		else if ((piles.a)[i] == nbr.sec_biggest)
+		else if (nbr.elems > 50 && (piles.a)[i] == nbr.sec_biggest)
 			return ((piles.a)[i]);
-		else if ((piles.a)[j] == nbr.sec_biggest)
+		else if (nbr.elems > 50 && (piles.a)[j] == nbr.sec_biggest)
 			return ((piles.a)[j]);
+		else if (nbr.elems > 50 && (piles.a)[i] == nbr.third_smallest)
+			return ((piles.a)[i]);
+		else if (nbr.elems > 50 && (piles.a)[j] == nbr.third_smallest)
+			return ((piles.a)[j]);
+		else if (i + 2 < piles.size && (piles.a)[i + 2] == nbr.smallest)
+			return ((piles.a)[i + 2]);
+		else if (j - 2 >= 0 && (piles.a)[j - 2] == nbr.smallest)
+			return ((piles.a)[j - 2]);
 		i++;
 		j--;
 	}

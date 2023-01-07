@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/06 06:14:45 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:50:31 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_inPile
 	long	nearest;
 	long	smallest;
 	long	sec_smallest;
+	long	third_smallest;
 	long	biggest;
 	long	sec_biggest;
 	int		elems;
@@ -73,6 +74,12 @@ void		algo_2_elements_b(t_pushSwap piles);
 void		algo_3_elements_a(t_pushSwap piles);
 void		algo_3_elements_b(t_pushSwap piles);
 
+/* Actions */
+void	actions_sec_smallest(t_pushSwap piles, t_inPile a, int called);
+void	actions_third_smallest(t_pushSwap piles, t_inPile a, int called);
+void	actions_biggest(t_pushSwap piles);
+void	actions_sec_biggest(t_pushSwap piles, t_inPile a, int called);
+
 /* Utilities */
 t_pushSwap	get_piles(char **args, int size);
 void		define_properties_a(t_pushSwap piles, t_inPile *a);
@@ -82,6 +89,7 @@ void		ft_swap(long *a, long *b);
 long		find_elem_on_top(t_pushSwap piles, long *pile);
 long		find_smallest(t_pushSwap piles, long *pile);
 long		find_sec_smallest(t_pushSwap piles, long *pile);
+long		find_third_smallest(t_pushSwap piles, long *pile);
 long		find_biggest(t_pushSwap piles, long *pile);
 long		find_sec_biggest(t_pushSwap piles, long *pile);
 int			pile_size(t_pushSwap piles, long *pile);

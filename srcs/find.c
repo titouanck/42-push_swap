@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 14:07:40 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 18:38:11 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:49:42 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,37 @@ long	find_sec_smallest(t_pushSwap piles, long *pile)
 		i++;
 	}
 	return (sec_smallest);
+}
+
+long	find_third_smallest(t_pushSwap piles, long *pile)
+{
+	long	smallest;
+	long	sec_smallest;
+	long	third_smallest;
+	int		i;
+
+	smallest = EMPTY;
+	sec_smallest = EMPTY;
+	third_smallest = EMPTY;
+	i = 0;
+	while (i < piles.size)
+	{
+		if (pile[i] < smallest && pile[i] != EMPTY)
+		{
+			third_smallest = sec_smallest;
+			sec_smallest = smallest;
+			smallest = pile[i];	
+		}
+		else if (pile[i] < sec_smallest && pile[i] != EMPTY)
+		{
+			third_smallest = sec_smallest;
+			sec_smallest = pile[i];
+		}
+		else if (pile[i] < third_smallest && pile[i] != EMPTY)
+			third_smallest = pile[i];
+		i++;
+	}
+	return (third_smallest);
 }
 
 long	find_biggest(t_pushSwap piles, long *pile)
