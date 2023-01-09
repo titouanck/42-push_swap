@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/07 17:50:31 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:31:34 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,19 @@
 
 # define EMPTY 4815162342
 
+typedef struct s_actions
+{
+	int					action;
+	struct s_actions	*next;
+}						t_actions;
+
 typedef struct s_pushSwap
 {
-	long	*a;
-	long	*b;
-	int		size;
-	int		elems;
+	long		*a;
+	long		*b;
+	int			size;
+	int			elems;
+	t_actions	*actions;
 }			t_pushSwap;
 
 typedef struct s_inPile
@@ -95,4 +102,7 @@ long		find_sec_biggest(t_pushSwap piles, long *pile);
 int			pile_size(t_pushSwap piles, long *pile);
 int			pile_sorted(t_pushSwap piles, long *pile);
 
+int			action_lstaddback(t_pushSwap piles, int action);
+void		print_actions(t_pushSwap piles);
+void		free_actions(t_pushSwap piles);
 #endif

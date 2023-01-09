@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:58:35 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 18:56:55 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:28:24 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	rev_rotate_a(t_pushSwap piles)
 		(piles.a)[i + 1] = (piles.a)[i];
 	if (i + 1 >= 0)
 		(piles.a)[i + 1] = tmp;
-	return(ft_printf("rra\n"), 1);
+	return(action_lstaddback(piles, 9), 1);
 }
 
 int	rev_rotate_b(t_pushSwap piles)
@@ -43,7 +43,7 @@ int	rev_rotate_b(t_pushSwap piles)
 		(piles.b)[i + 1] = (piles.b)[i];
 	if (i + 1 >= 0)
 		(piles.b)[i + 1] = tmp;
-	return(ft_printf("rrb\n"), 1);
+	return(action_lstaddback(piles, 10), 1);
 }
 
 int	rev_rotate_ab(t_pushSwap piles)
@@ -63,7 +63,7 @@ int	rev_rotate_ab(t_pushSwap piles)
 		(piles.b)[i + 1] = (piles.b)[i];
 	if (i + 1 >= 0)
 		(piles.b)[i + 1] = tmp;
-	return(ft_printf("rrr\n"), 1);
+	return(action_lstaddback(piles, 11), 1);
 }
 
 #endif

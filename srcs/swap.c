@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:31:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 18:57:09 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:27:00 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	swap_a(t_pushSwap piles)
 		ft_swap(&((piles.a)[i]), &((piles.a)[i + 1]));
 	else
 		return (0);
-	return (ft_printf("sa\n"), 1);
+	return (action_lstaddback(piles, 1), 1);
 }
 
 int	swap_b(t_pushSwap piles)
@@ -39,7 +39,7 @@ int	swap_b(t_pushSwap piles)
 		ft_swap(&((piles.b)[i]), &((piles.b)[i + 1]));
 	else
 		return (0);
-	return (ft_printf("sb\n"), 1);
+	return (action_lstaddback(piles, 2), 1);
 }
 
 int	swap_ab(t_pushSwap piles)
@@ -56,7 +56,8 @@ int	swap_ab(t_pushSwap piles)
 		i++;
 	if (i + 1 < piles.size)
 		ft_swap(&((piles.b)[i]), &((piles.b)[i + 1]));
-	return (ft_printf("ss\n"), 1);
+	action_lstaddback(piles, 3);
+	return (action_lstaddback(piles, 3), 1);
 }
 
 #endif

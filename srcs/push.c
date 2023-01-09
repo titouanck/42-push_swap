@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:32:07 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/04 18:56:49 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:27:46 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	push_a(t_pushSwap piles)
 	if (j >= piles.size)
 		return (0);
 	ft_swap(&((piles.b)[i]), &((piles.a)[j]));
-	return (ft_printf("pa\n"), 1);
+	return (action_lstaddback(piles, 4), 1);
 }
 
 int	push_b(t_pushSwap piles)
@@ -49,7 +49,7 @@ int	push_b(t_pushSwap piles)
 	if (j >= piles.size)
 		return (0);
 	ft_swap(&((piles.a)[i]), &((piles.b)[j]));
-	return (ft_printf("pb\n"), 1);
+	return (action_lstaddback(piles, 5), 1);
 }
 
 #endif
