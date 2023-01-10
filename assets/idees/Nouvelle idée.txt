@@ -1,0 +1,33 @@
+L'idée va être de créer un clone de nos piles a et b.
+
+On va calculer la combinaison d'actions la plus rapide
+nous permettant d'arriver à nos fins sur 2 coups.
+
+Par exemple on vas essayer:
+	-> Smallest puis Smallest puis Smallest;
+	-> sec_smallest puis Smallest puis Smallest;
+	-> sec_smallest puis Biggest puis Smallest;
+
+On effectue chacun de ces scenarios dans une pile clone.
+On garde le resultat le plus rapide.
+On l'execute.
+
+Si cela créer une réelle amelioration du programme,
+alors on l'implente et on l'améliore.
+
+Mais 2 coups est deja long a coder. 
+Comment faire pour 5 ? 
+Beaucoup trop de possibilités pour les ecrire une par une.
+
+En attendant il faut essayer avec 2.
+
+On pourra aussi gratter du temps du les rr et rrr
+	-> A chaque fois qu'on veux en faire un ra/rb/rra/rrb, 
+	on check si c'est pas avantageux de faire tourner les deux piles.
+
+Il faudra aussi optimiser pour les petites piles
+	-> Jusqu'à 8-10 on devrait pouvoir avoir des algorithmes plus précis
+	pour toujours gagner quelques coups
+
+Peut- être qu'on pourra aussi constamment check si plus de nombre dans l'ordre ou de nombre dans le désordre.
+S'il y en a plus dans l'ordre, mais ca semble etre tres long/compliqué de reussir a check cela.

@@ -1,0 +1,7 @@
+Bloc de 10 a droite
+
+Puis On les mets 3 par 3 a gauche (plus grand au plus petit, a trier dans a en tant que bloc de 3)
+
+300 coups en manuel
+
+Djimo le fait en 346 coups.

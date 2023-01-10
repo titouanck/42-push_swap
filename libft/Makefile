@@ -10,7 +10,7 @@ ADDITIONAL =	Libft/ft_itoa.c Libft/ft_putchar_fd.c Libft/ft_putendl_fd.c Libft/f
 
 BONUS =	Libft/ft_lstadd_back_bonus.c Libft/ft_lstadd_front_bonus.c Libft/ft_lstclear_bonus.c \
 		Libft/ft_lstdelone_bonus.c Libft/ft_lstiter_bonus.c Libft/ft_lstlast_bonus.c \
-		Libft/ft_lstmap_bonus.c Libft/ft_lstnew_bonus.c Libft/ft_lstsize_bonus.c
+		Libft/ft_lstmap_bonus.c Libft/ft_lstnew_bonus.c Libft/ft_lstsize_bonus.c Libft/ft_swap.c
 
 SRCSLIBFT = ${LIBC} ${ADDITIONAL} ${BONUS}
 

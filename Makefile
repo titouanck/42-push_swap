@@ -20,8 +20,8 @@ INTMAXMIN_NUMBERS = -2147483648 2147483647 -2147483647
 LOST_NUMBERS = 4 42 8 23 15 16
 NEGATIVE_NUMBERS = 5 0 6 2 -45 -76 7 9 -5 -89 -23 -6 1
 
-# NUMBERS = 3 1 2 4
-NUMBERS = ${10_NUMBERS}
+NUMBERS = 3 1 2 4
+# NUMBERS = ${100_NUMBERS}
 
 EXEC = push_swap
 CC = cc
@@ -32,7 +32,7 @@ CFLAGS =# -Wall -Werror -Wextra
 
 ${EXEC}:	${OBJS} 
 		+$(MAKE) -C libft
-		gcc -o ${EXEC} ${CFLAGS} ${OBJS} ${LIBS}
+		cc -o ${EXEC} ${CFLAGS} ${OBJS} ${LIBS}
 
 all:	${EXEC}
 
@@ -42,7 +42,7 @@ operations:
 visualisation: all
 		+$(MAKE) -C libft
 		clear
-		gcc -o .visualisation ${CFLAGS} -D VISUALISATION=1 ${SRCS} ${LIBS}
+		cc -o .visualisation ${CFLAGS} -D VISUALISATION=1 ${SRCS} ${LIBS}
 		./.visualisation ${NUMBERS}
 		./push_swap ${NUMBERS} | wc -l
 		rm -f ${OBJS} ${EXEC} .visualisation
@@ -50,7 +50,7 @@ visualisation: all
 play:
 		+$(MAKE) -C libft
 		clear
-		gcc -o push_swap ${CFLAGS} -D VISUALISATION=1 -D MANUAL=1 ${SRCS} ${LIBS}
+		cc -o push_swap ${CFLAGS} -D VISUALISATION=1 -D MANUAL=1 ${SRCS} ${LIBS}
 		./push_swap ${NUMBERS}
 		rm -f ${OBJS} ${EXEC}
 

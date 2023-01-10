@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:32:07 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/08 16:27:46 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/10 19:09:01 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	push_a(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while ((piles.b)[i] == EMPTY && i < piles.size)
+	while (((piles.b) + i) == EMPTY && i < piles.size)
 		i++;
 	if (i >= piles.size)
 		return (0);
@@ -29,8 +29,8 @@ int	push_a(t_pushSwap piles)
 		j++;
 	if (j >= piles.size)
 		return (0);
-	ft_swap(&((piles.b)[i]), &((piles.a)[j]));
-	return (action_lstaddback(piles, 4), 1);
+	ft_swap(&(((piles.b) + i)), &((piles.a)[j]));
+	return (ft_printf("pa\n"), 1);
 }
 
 int	push_b(t_pushSwap piles)
@@ -39,7 +39,7 @@ int	push_b(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while ((piles.a)[i] == EMPTY && i < piles.size)
+	while (((piles.a) + i) == EMPTY && i < piles.size)
 		i++;
 	if (i >= piles.size)
 		return (0);
@@ -48,8 +48,8 @@ int	push_b(t_pushSwap piles)
 		j++;
 	if (j >= piles.size)
 		return (0);
-	ft_swap(&((piles.a)[i]), &((piles.b)[j]));
-	return (action_lstaddback(piles, 5), 1);
+	ft_swap(&(((piles.a) + i)), &((piles.b)[j]));
+	return (ft_printf("pb\n"), 1);
 }
 
 #endif
@@ -62,7 +62,7 @@ int	push_a(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while ((piles.b)[i] == EMPTY && i < piles.size)
+	while (((piles.b) + i) == EMPTY && i < piles.size)
 		i++;
 	if (i >= piles.size)
 		return (0);
@@ -71,7 +71,7 @@ int	push_a(t_pushSwap piles)
 		j++;
 	if (j >= piles.size)
 		return (0);
-	ft_swap(&((piles.b)[i]), &((piles.a)[j]));
+	ft_swap(&(((piles.b) + i)), &((piles.a)[j]));
 	print_piles(piles);
 	return (ft_printf("   pa\n"), 1);
 }
@@ -82,7 +82,7 @@ int	push_b(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while ((piles.a)[i] == EMPTY && i < piles.size)
+	while (((piles.a) + i) == EMPTY && i < piles.size)
 		i++;
 	if (i >= piles.size)
 		return (0);
@@ -91,7 +91,7 @@ int	push_b(t_pushSwap piles)
 		j++;
 	if (j >= piles.size)
 		return (0);
-	ft_swap(&((piles.a)[i]), &((piles.b)[j]));
+	ft_swap(&(((piles.a) + i)), &((piles.b)[j]));
 	print_piles(piles);
 	return (ft_printf("   pb\n"), 1);
 }

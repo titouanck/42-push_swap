@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   pile_size.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 13:39:04 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/10 19:04:38 by tchevrie         ###   ########.fr       */
+/*   Created: 2023/01/10 19:05:13 by tchevrie          #+#    #+#             */
+/*   Updated: 2023/01/10 19:05:41 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	push_swap(char **args, int size)
+int	pile_size(t_pushSwap piles, t_elem *pile)
 {
-	t_pushSwap	piles;
+	int	i;
 
-	piles = get_piles(args, size);
-	if (!(piles.a) || !(piles.b))
-		return (0);
-	algorithm(piles);
-	// algorithm_djimo(piles);
-	print_piles(piles);
-	return (free(piles.a), free(piles.b), 1);
+	i = 0;
+	while (i < piles.size)
+	{
+		if ((pile + i)->nbr != EMPTY)
+			break ;
+		i++;
+	}
+	return (piles.size - i);
 }
-
-#ifndef MANUAL
-
-int	main(int argc, char **argv)
-{
-	if (argc == 1)
-		return (1);
-	else if (!push_swap(argv + 1, argc - 1))
-		return (1);
-	return (0);
-}
-
-#endif

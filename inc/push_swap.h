@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/08 16:31:34 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/10 19:07:32 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,24 @@
 
 # define EMPTY 4815162342
 
-typedef struct s_actions
+typedef struct s_elem
 {
-	int					action;
-	struct s_actions	*next;
-}						t_actions;
+	long	nbr;
+	long	index;
+}			t_elem;
 
 typedef struct s_pushSwap
 {
-	long		*a;
-	long		*b;
-	int			size;
-	int			elems;
-	t_actions	*actions;
+	t_elem	*a;
+	t_elem	*b;
+	int		size;
 }			t_pushSwap;
 
 typedef struct s_inPile
 {
 	long	*ptr;
 	long	on_top;
-	long	to_find;
 	long	nearest;
-	long	smallest;
-	long	sec_smallest;
-	long	third_smallest;
-	long	biggest;
-	long	sec_biggest;
 	int		elems;
 }			t_inPile;
 
@@ -99,10 +91,7 @@ long		find_sec_smallest(t_pushSwap piles, long *pile);
 long		find_third_smallest(t_pushSwap piles, long *pile);
 long		find_biggest(t_pushSwap piles, long *pile);
 long		find_sec_biggest(t_pushSwap piles, long *pile);
-int			pile_size(t_pushSwap piles, long *pile);
+int			pile_size(t_pushSwap piles, t_elem *pile);
 int			pile_sorted(t_pushSwap piles, long *pile);
 
-int			action_lstaddback(t_pushSwap piles, int action);
-void		print_actions(t_pushSwap piles);
-void		free_actions(t_pushSwap piles);
 #endif
