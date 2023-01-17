@@ -7,7 +7,9 @@ LIBFTPATH = -L libft -lft
 LIBS = ${INC} ${LIBFTPATH}
 
 1_NUMBERS = 1
-3_NUMBERS = 4588272 2483383 5448761
+2_NUMBERS = 42 21
+3_NUMBERS = 2483383 5448761 4588272
+4_NUMBERS = 8 42 4 23
 5_NUMBERS = 18 54 89 76 3
 10_NUMBERS = 62 18 66 24 97 85 43 44 41 7
 15_NUMBERS = 43081 4187 62876 62581 25053 87234 9408 72236 99639 93592 1464 46625 42137 12985 85538
@@ -21,7 +23,7 @@ LOST_NUMBERS = 4 42 8 23 15 16
 NEGATIVE_NUMBERS = 5 0 6 2 -45 -76 7 9 -5 -89 -23 -6 1
 
 # NUMBERS = 3 1 2 4
-NUMBERS = ${100_NUMBERS}
+NUMBERS = ${50_NUMBERS}
 
 EXEC = push_swap
 CC = cc
@@ -68,42 +70,62 @@ run_macos: all
 
 test: all
 	echo "=======> RESULTS <=======" > .test_results
+
 	echo -n "1\t|  " >> .test_results
 	./push_swap ${1_NUMBERS} | ./checker_linux ${1_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${1_NUMBERS} | wc -l >> .test_results
+
+	echo -n "2\t|  " >> .test_results
+	./push_swap ${2_NUMBERS} | ./checker_linux ${2_NUMBERS} | tr '\n' ' '>> .test_results
+	echo -n " | " >> .test_results
+	./push_swap ${2_NUMBERS} | wc -l >> .test_results
+
 	echo -n "3\t|  " >> .test_results
 	./push_swap ${3_NUMBERS} | ./checker_linux ${3_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${3_NUMBERS} | wc -l >> .test_results
+
+	echo -n "4\t|  " >> .test_results
+	./push_swap ${4_NUMBERS} | ./checker_linux ${4_NUMBERS} | tr '\n' ' '>> .test_results
+	echo -n " | " >> .test_results
+	./push_swap ${4_NUMBERS} | wc -l >> .test_results
+
 	echo -n "5\t|  " >> .test_results
 	./push_swap ${5_NUMBERS} | ./checker_linux ${5_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${5_NUMBERS} | wc -l >> .test_results
+
 	echo -n "10\t|  " >> .test_results
 	./push_swap ${10_NUMBERS} | ./checker_linux ${10_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${10_NUMBERS} | wc -l >> .test_results
+
 	echo -n "15\t|  " >> .test_results
 	./push_swap ${15_NUMBERS} | ./checker_linux ${15_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${15_NUMBERS} | wc -l >> .test_results
+
 	echo -n "50\t|  " >> .test_results
 	./push_swap ${50_NUMBERS} | ./checker_linux ${50_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${50_NUMBERS} | wc -l >> .test_results
+
 	echo -n "100\t|  " >> .test_results
 	./push_swap ${100_NUMBERS} | ./checker_linux ${100_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS} | wc -l >> .test_results
+
 	echo -n "500\t|  " >> .test_results
 	./push_swap ${500_NUMBERS} | ./checker_linux ${500_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${500_NUMBERS} | wc -l >> .test_results
+
 	echo -n "1000\t|  " >> .test_results
 	./push_swap ${1000_NUMBERS} | ./checker_linux ${1000_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${1000_NUMBERS} | wc -l >> .test_results
+
 	clear
 	cat .test_results
 	rm -f ${OBJS} ${EXEC} .test_results
