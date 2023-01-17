@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:57:40 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/17 18:35:12 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:02:06 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	algo_blocs_of_10(t_pushSwap piles)
 	t_bloc		bloc_down;
 	t_numbers	numbers_b;
 
-	bloc_down.min = (piles.size / 2) / 10 * 10;
+	bloc_down.min = (piles.size / 2) / 10 * 10 - 10;
 	bloc_down.max = bloc_down.min + 9;
 	bloc_down.valid = 1;
 	bloc_up.min = bloc_down.min + 10;
@@ -80,6 +80,8 @@ static void	algo_blocs_of_10(t_pushSwap piles)
 	bloc_up.valid = 1;
 	while (pile_size(piles, piles.a) > 0)
 	{
+		// printf("Bloc down: min (%ld) | max (%ld)\n", bloc_down.min, bloc_down.max);
+		// printf("Bloc up: min (%ld) | max (%ld)\n", bloc_up.min, bloc_up.max);
 		if (bloc_down.valid)
 		{
 			bloc_down.nearest = find_nearest_inrange(piles, piles.a, bloc_down.min, bloc_down.max);
@@ -110,6 +112,8 @@ static void	algo_blocs_of_10(t_pushSwap piles)
 				}
 			}
 		}
+		// printf("Bloc down: nearest (%ld)\n", bloc_down.nearest.index);
+		// printf("Bloc up: nearest (%ld)\n", bloc_up.nearest.index);
 		if (!(bloc_down.valid) && !(bloc_up.valid))
 			break ;
 		else if (bloc_down.valid && !(bloc_up.valid))
@@ -123,8 +127,11 @@ static void	algo_blocs_of_10(t_pushSwap piles)
 		if (numbers_b.ontop.index == bloc_down.nearest.index)
 			rotate_b(piles);
 	}
-	// printf("Bloc down: min (%ld) | max (%ld)\n", bloc_down.min, bloc_down.max);
-	// printf("Bloc up: min (%ld) | max (%ld)\n", bloc_up.min, bloc_up.max);
+	while (pile_size(piles, piles.b) > 0)
+	{
+		place_element_on_top_b(piles, find_biggest(piles, piles.b));
+		push_a(piles);
+	}
 }
 
 void	algorithm(t_pushSwap piles)

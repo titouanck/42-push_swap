@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:05:05 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/17 18:32:19 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:28:15 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,8 @@ t_elem	find_closest_one(t_pushSwap piles, t_elem *pile, long a, long b)
 	t_elem	not_found;
 
 	i = 0;
+	while (i < piles.size && (pile + i)->index == EMPTY)
+		i++;
 	j = piles.size - 1;
 	while (i < piles.size)
 	{
@@ -168,6 +170,8 @@ t_elem	find_nearest_inrange(t_pushSwap piles, t_elem *pile, long min, long max)
 	t_elem	not_found;
 
 	i = 0;
+	while (i < piles.size && (pile + i)->index == EMPTY)
+		i++;
 	j = piles.size - 1;
 	while (i < piles.size)
 	{
