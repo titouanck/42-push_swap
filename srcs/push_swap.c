@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:04 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 17:50:02 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:06:18 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ static int	push_swap(char **args, int size)
 	return (free(piles.original_a), free(piles.original_b), 1);
 }
 
-#ifndef MANUAL
-
 int	main(int argc, char **argv)
 {
 	if (argc == 1)
@@ -94,5 +92,3 @@ int	main(int argc, char **argv)
 		return (1);
 	return (0);
 }
-
-#endif

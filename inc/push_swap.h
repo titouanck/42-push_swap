@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 17:52:35 by tchevrie         ###   ########.fr       */
+/*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
+/*   Updated: 2023/01/18 19:09:27 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,11 @@ typedef struct s_numbers
 	t_elem	ontop;
 }			t_numbers;
 
+typedef struct s_ij
+{
+	int	i;
+	int	j;
+}		t_ij;
 
 /* Operations */
 int			swap_ab(t_pushSwap piles);
@@ -93,39 +98,70 @@ int			rev_rotate_ab(t_pushSwap piles);
 int			rev_rotate_a(t_pushSwap piles);
 int			rev_rotate_b(t_pushSwap piles);
 
-/* Utilities */
-t_pushSwap	get_piles(char **args, int size);
-void		print_piles(t_pushSwap piles);
-void		ft_swap(long *a, long *b);
-int			pile_size(t_pushSwap piles, t_elem *pile);
+// actions.c
+void		actions_smallest_on_top_a(t_pushSwap piles);
+void		actions_sec_smallest_on_top_a(t_pushSwap piles);
+void		actions_biggest_on_top_a(t_pushSwap piles);
+
+// algo_blocs.c
+void		algo_blocs(t_pushSwap piles, int nbr);
+
+// algorithm.c
 void		algorithm(t_pushSwap piles);
-t_elem		find_nearest(t_pushSwap piles, t_elem *pile, t_numbers numbers);
-t_elem		find_smallest(t_pushSwap piles, t_elem *pile);
-t_elem		find_biggest(t_pushSwap piles, t_elem *pile);
+
+// define_bloc.c
+t_bloc		define_bloc_down(t_pushSwap piles, int nbr);
+t_bloc		define_bloc_up(t_pushSwap piles, int nbr, t_bloc bloc_down);
+
+// define_properties.c
 t_numbers	define_properties(t_pushSwap piles, t_elem *pile);
+
+// find.c
 t_elem		find_ontop(t_pushSwap piles, t_elem *pile);
-int			pile_sorted(t_pushSwap piles, t_elem *pile);
+t_elem		find_biggest(t_pushSwap piles, t_elem *pile);
+t_elem		find_sec_biggest(t_pushSwap piles, t_elem *pile);
+t_elem		find_smallest(t_pushSwap piles, t_elem *pile);
+t_elem		find_sec_smallest(t_pushSwap piles, t_elem *pile);
+
+// find_nearest.c
+t_elem		find_nearest(t_pushSwap piles, t_elem *pile, t_numbers numbers);
+t_elem		find_closest_one(t_pushSwap piles, t_elem *pile, long a, long b);
+t_elem		\
+find_nearest_inrange(t_pushSwap piles, t_elem *pile, long min, long max);
+
+// get_piles.c
+t_pushSwap	get_piles(char **args, int size);
+
+// mini_algos.c
+void		algo_2_elements_a(t_pushSwap piles);
+void		algo_3_elements_a(t_pushSwap piles);
+void		algo_19_elements_a(t_pushSwap piles);
+void		algo_100_elements_a(t_pushSwap piles);
+void		algo_750_elements_a(t_pushSwap piles);
+
+// on_top.c
 void		place_element_on_top_a(t_pushSwap piles, t_elem elem);
 void		place_element_on_top_b(t_pushSwap piles, t_elem elem);
-t_elem		find_sec_smallest(t_pushSwap piles, t_elem *pile);
-void		actions_sec_smallest_on_top_a(t_pushSwap piles);
-void		actions_smallest_on_top_a(t_pushSwap piles);
-void		actions_biggest_on_top_a(t_pushSwap piles);
-t_elem		find_nearest_inrange(t_pushSwap piles, t_elem *pile, long min, long max);
-t_elem		find_closest_one(t_pushSwap piles, t_elem *pile, long a, long b);
-t_elem		find_sec_biggest(t_pushSwap piles, t_elem *pile);
 
-
-t_operation *new_operation(t_pushSwap piles, int operation);
+// operations.c
+int			count_operations(t_pushSwap piles);
 void		free_operations(t_pushSwap piles);
+t_operation	*new_operation(t_pushSwap piles, int operation);
+
+// pile_size.c
+int			pile_size(t_pushSwap piles, t_elem *pile);
+
+// pile_sorted.c
+int			pile_sorted(t_pushSwap piles, t_elem *pile);
+
+// print_operations.c
 void		print_operations(t_pushSwap piles);
 
+// print_piles.c
+void		print_piles(t_pushSwap piles);
+
+// push_swap.c
 void		reset_piles(t_pushSwap piles);
 t_pushSwap	duplicate_piles(t_pushSwap piles);
-
-
-int			count_operations(t_pushSwap piles);
-
-t_numbers	define_properties(t_pushSwap piles, t_elem *pile);
 
 #endif

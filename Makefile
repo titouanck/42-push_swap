@@ -38,7 +38,7 @@ NUMBERS = ${1000_NUMBERS}
 
 EXEC = push_swap
 CC = cc
-CFLAGS =# -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 .c.o:
 		${CC} ${CFLAGS} ${INC} -c $< -o ${<:.c=.o}
@@ -216,6 +216,42 @@ test_macos: all
 	./push_swap ${100_NUMBERS} | ./checker_Mac ${100_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${100_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
+	echo "100 (2): " >> .test_results
+	./push_swap ${100_NUMBERS_2} | ./checker_Mac ${100_NUMBERS_2} | tr '\n' '\t'>> .test_results
+	./push_swap ${100_NUMBERS_2} | wc -l >> .test_results
+	echo "" >> .test_results
+
+	echo "100 (3): " >> .test_results
+	./push_swap ${100_NUMBERS_3} | ./checker_Mac ${100_NUMBERS_3} | tr '\n' '\t'>> .test_results
+	./push_swap ${100_NUMBERS_3} | wc -l >> .test_results
+	echo "" >> .test_results
+
+	echo "100 (4): " >> .test_results
+	./push_swap ${100_NUMBERS_4} | ./checker_Mac ${100_NUMBERS_4} | tr '\n' '\t'>> .test_results
+	./push_swap ${100_NUMBERS_4} | wc -l >> .test_results
+	echo "" >> .test_results
+
+	echo "100 (5): " >> .test_results
+	./push_swap ${100_NUMBERS_5} | ./checker_Mac ${100_NUMBERS_5} | tr '\n' '\t'>> .test_results
+	./push_swap ${100_NUMBERS_5} | wc -l >> .test_results
+
+	echo "100 (6): " >> .test_results
+	./push_swap ${100_NUMBERS_6} | ./checker_Mac ${100_NUMBERS_6} | tr '\n' '\t'>> .test_results
+	./push_swap ${100_NUMBERS_6} | wc -l >> .test_results
+	echo "" >> .test_results
+	echo "" >> .test_results
+
+	echo "100 (7): " >> .test_results
+	./push_swap ${100_NUMBERS_7} | ./checker_Mac ${100_NUMBERS_7} | tr '\n' '\t'>> .test_results
+	./push_swap ${100_NUMBERS_7} | wc -l >> .test_results
+	echo "" >> .test_results
+
+	echo "100 (8): " >> .test_results
+	./push_swap ${100_NUMBERS_8} | ./checker_Mac ${100_NUMBERS_8} | tr '\n' '\t'>> .test_results
+	./push_swap ${100_NUMBERS_8} | wc -l >> .test_results
+	echo "" >> .test_results
+
 	echo "500: " >> .test_results
 	./push_swap ${500_NUMBERS} | ./checker_Mac ${500_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${500_NUMBERS} | wc -l >> .test_results
