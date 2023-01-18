@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:04 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 14:59:03 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:55:08 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	free_operations(t_pushSwap piles)
 	t_operation	*current;
 	t_operation	*tmp;
 
-	tmp = piles.operations;
+	current = piles.operations;
 	while (current)
 	{
 		tmp = current;
@@ -95,18 +95,17 @@ static int	push_swap(char **args, int size)
 	piles = get_piles(args, size);
 	if (!(piles.a) || !(piles.b))
 		return (0);
-	// piles.operations = malloc(sizeof(t_operation));
-	// if (!(piles.operations))
-	// {
-	// 	ft_printf(ERR_ALLOC);
-	// 	return (free(piles.a), free(piles.b), 0);
-	// }
-	// piles.operations->operation = NONE;
-	// piles.operations->next = NULL;
+	piles.operations = malloc(sizeof(t_operation));
+	if (!(piles.operations))
+	{
+		ft_printf(ERR_ALLOC);
+		return (free(piles.a), free(piles.b), 0);
+	}
+	piles.operations->operation = NONE;
+	piles.operations->next = NULL;
 	algorithm(piles);
-	// ft_printf("|LISTE|\n");
-	// print_operations(piles);
-	// free_operations(piles);
+	print_operations(piles);
+	free_operations(piles);
 	return (free(piles.a), free(piles.b), 1);
 }
 
