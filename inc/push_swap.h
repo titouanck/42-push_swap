@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 14:57:02 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:51:34 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ typedef struct s_pushSwap
 {
 	t_elem		*a;
 	t_elem		*b;
+	t_elem		*original_a;
+	t_elem		*original_b;
 	int			size;
 	t_operation	*operations;
 }			t_pushSwap;
@@ -118,9 +120,10 @@ t_operation *new_operation(t_pushSwap piles, int operation);
 void		free_operations(t_pushSwap piles);
 void		print_operations(t_pushSwap piles);
 
+void		reset_piles(t_pushSwap piles);
+t_pushSwap	duplicate_piles(t_pushSwap piles);
 
 
-
-
+int			count_operations(t_pushSwap piles);
 
 #endif
