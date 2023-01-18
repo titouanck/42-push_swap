@@ -1,10 +1,51 @@
-SRCS = ${wildcard srcs/*.c}
+SRCS =	srcs/actions.c		srcs/algo_blocs.c	srcs/algorithm.c	srcs/define_bloc.c		srcs/define_properties.c	\
+		srcs/find.c			srcs/find_nearest.c	srcs/get_piles.c	srcs/mini_algos.c		srcs/on_top.c	\
+		srcs/operations.c	srcs/pile_size.c	srcs/pile_sorted.c	srcs/print_operations.c	srcs/print_piles.c	\
+		srcs/push.c			srcs/push_swap.c	srcs/rev_rotate.c	srcs/rotate.c			srcs/swap.c
 
 OBJS = ${SRCS:.c=.o}
+DEPS = ${SRCS:.c=.d}
 
 INC = -I inc/ -I libft
 LIBFTPATH = -L libft -lft
 LIBS = ${INC} ${LIBFTPATH}
+
+# NUMBERS = 3 1 2 4
+
+EXEC = push_swap
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+
+.c.o:
+		${CC} ${CFLAGS} ${INC} -MMD -c $< -o ${<:.c=.o}
+
+${EXEC}:	${OBJS} 
+		+$(MAKE) -C libft
+		cc -o ${EXEC} ${CFLAGS} ${OBJS} ${LIBS}
+
+all:	${EXEC}
+
+clean:	
+		+$(MAKE) -C libft clean
+		rm -f ${OBJS} ${DEPS}
+
+fclean:	clean;
+		+$(MAKE) -C libft fclean
+		rm -f ${EXEC}
+
+re:	fclean all
+
+-include ${DEPS}
+
+# My rules
+
+norminette:
+		clear
+		norminette srcs/
+		norminette inc/
+		norminette libft/
+operations:
+	./push_swap ${NUMBERS} | wc -l
 
 1_NUMBERS = 1
 2_NUMBERS = 42 21
@@ -33,39 +74,7 @@ INTMAXMIN_NUMBERS = -2147483648 2147483647 -2147483647
 LOST_NUMBERS = 4 42 8 23 15 16
 NEGATIVE_NUMBERS = 5 0 6 2 -45 -76 7 9 -5 -89 -23 -6 1
 
-# NUMBERS = 3 1 2 4
 NUMBERS = ${1000_NUMBERS}
-
-EXEC = push_swap
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
-
-.c.o:
-		${CC} ${CFLAGS} ${INC} -c $< -o ${<:.c=.o}
-
-${EXEC}:	${OBJS} 
-		+$(MAKE) -C libft
-		cc -o ${EXEC} ${CFLAGS} ${OBJS} ${LIBS}
-
-all:	${EXEC}
-
-operations:
-	./push_swap ${NUMBERS} | wc -l
-
-visualisation: all
-		+$(MAKE) -C libft
-		clear
-		cc -o .visualisation ${CFLAGS} -D VISUALISATION=1 ${SRCS} ${LIBS}
-		./.visualisation ${NUMBERS}
-		./push_swap ${NUMBERS} | wc -l
-		rm -f ${OBJS} ${EXEC} .visualisation
-
-play:
-		+$(MAKE) -C libft
-		clear
-		cc -o push_swap ${CFLAGS} -D VISUALISATION=1 -D MANUAL=1 ${SRCS} ${LIBS}
-		./push_swap ${NUMBERS}
-		rm -f ${OBJS} ${EXEC}
 
 run: all
 	./push_swap ${NUMBERS}
@@ -192,26 +201,32 @@ test_macos: all
 	./push_swap ${1_NUMBERS} | ./checker_Mac ${1_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${1_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
 	echo "3: " >> .test_results
 	./push_swap ${3_NUMBERS} | ./checker_Mac ${3_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${3_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
 	echo "5: " >> .test_results
 	./push_swap ${5_NUMBERS} | ./checker_Mac ${5_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${5_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
 	echo "10: " >> .test_results
 	./push_swap ${10_NUMBERS} | ./checker_Mac ${10_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${10_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
 	echo "15: " >> .test_results
 	./push_swap ${15_NUMBERS} | ./checker_Mac ${15_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${15_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
 	echo "50: " >> .test_results
 	./push_swap ${50_NUMBERS} | ./checker_Mac ${50_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${50_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
 	echo "100: " >> .test_results
 	./push_swap ${100_NUMBERS} | ./checker_Mac ${100_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${100_NUMBERS} | wc -l >> .test_results
@@ -256,6 +271,7 @@ test_macos: all
 	./push_swap ${500_NUMBERS} | ./checker_Mac ${500_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${500_NUMBERS} | wc -l >> .test_results
 	echo "" >> .test_results
+
 	echo "1000: " >> .test_results
 	./push_swap ${1000_NUMBERS} | ./checker_Mac ${1000_NUMBERS} | tr '\n' '\t'>> .test_results
 	./push_swap ${1000_NUMBERS} | wc -l >> .test_results
@@ -263,18 +279,3 @@ test_macos: all
 	clear
 	cat .test_results
 	rm -f ${OBJS} ${EXEC} .test_results
-
-clean:	
-		+$(MAKE) -C libft clean
-		rm -f ${OBJS} 
-
-fclean:	clean;
-		+$(MAKE) -C libft fclean
-		rm -f ${EXEC}
-
-re:	fclean all
-
-norminette:
-		clear
-		norminette srcs/
-		norminette inc/

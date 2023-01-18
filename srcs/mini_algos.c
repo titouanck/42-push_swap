@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:22:13 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 18:56:59 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:26:20 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	algo_2_elements_a(t_pushSwap piles)
 {
 	int			i;
-	t_numbers	numbers;
 
-	numbers = define_properties(piles, piles.a);
 	i = piles.size - 2;
 	if ((piles.a + i)->index > (piles.a + i + 1)->index)
 		swap_a(piles);
