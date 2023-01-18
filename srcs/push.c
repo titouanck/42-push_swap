@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:32:07 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/10 19:37:01 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:05:18 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	push_a(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while (((piles.b) + i)->nbr == EMPTY && i < piles.size)
+	while (i < piles.size && ((piles.b) + i)->nbr == EMPTY)
 		i++;
 	if (i >= piles.size)
 		return (0);
 	j = 0;
-	while (((piles.a) + j + 1)->nbr == EMPTY && j + 1 < piles.size)
+	while (j + 1 < piles.size && ((piles.a) + j + 1)->nbr == EMPTY)
 		j++;
 	if (j >= piles.size)
 		return (0);
@@ -40,12 +40,12 @@ int	push_b(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while (((piles.a) + i)->nbr == EMPTY && i < piles.size)
+	while (i < piles.size && ((piles.a) + i)->nbr == EMPTY)
 		i++;
 	if (i >= piles.size)
 		return (0);
 	j = 0;
-	while (((piles.b) + j + 1)->nbr == EMPTY && j + 1 < piles.size)
+	while (j + 1 < piles.size && ((piles.b) + j + 1)->nbr == EMPTY)
 		j++;
 	if (j >= piles.size)
 		return (0);
@@ -64,12 +64,12 @@ int	push_a(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while (((piles.b) + i)->nbr == EMPTY && i < piles.size)
+	while (i < piles.size && ((piles.b) + i)->nbr == EMPTY)
 		i++;
 	if (i >= piles.size)
 		return (0);
 	j = 0;
-	while (((piles.a) + j + 1)->nbr == EMPTY && j + 1 < piles.size)
+	while (j + 1 < piles.size && ((piles.a) + j + 1)->nbr == EMPTY)
 		j++;
 	if (j >= piles.size)
 		return (0);
@@ -85,12 +85,12 @@ int	push_b(t_pushSwap piles)
 	int	j;
 
 	i = 0;
-	while (((piles.a) + i)->nbr == EMPTY && i < piles.size)
+	while (i < piles.size && ((piles.a) + i)->nbr == EMPTY)
 		i++;
 	if (i >= piles.size)
 		return (0);
 	j = 0;
-	while (((piles.b) + j + 1)->nbr == EMPTY && j + 1 < piles.size)
+	while (j + 1 < piles.size && ((piles.b) + j + 1)->nbr == EMPTY)
 		j++;
 	if (j >= piles.size)
 		return (0);

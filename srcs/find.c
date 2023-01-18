@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:05:05 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/17 19:28:15 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:23:45 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_numbers	define_properties(t_pushSwap piles, t_elem *pile)
 	numbers.smallest = find_smallest(piles, pile);
 	numbers.sec_smallest = find_sec_smallest(piles, pile);
 	numbers.biggest = find_biggest(piles, pile);
+	numbers.sec_biggest = find_sec_biggest(piles, pile);
 	numbers.ontop = find_ontop(piles, pile);
 	numbers.nearest = find_nearest(piles, pile, numbers);
 	return (numbers);
@@ -56,6 +57,31 @@ t_elem	find_biggest(t_pushSwap piles, t_elem *pile)
 		i++;
 	}
 	return (biggest);
+}
+
+t_elem	find_sec_biggest(t_pushSwap piles, t_elem *pile)
+{
+	t_elem	biggest;
+	t_elem	sec_biggest;
+	int		i;
+
+	biggest.index = -EMPTY;
+	biggest.nbr = -EMPTY;
+	sec_biggest.index = -EMPTY;
+	sec_biggest.nbr = -EMPTY;
+	i = 0;
+	while (i < piles.size)
+	{
+		if ((pile + i)->index > biggest.index && (pile + i)->index != EMPTY)
+		{
+			sec_biggest = biggest;
+			biggest = pile[i];
+		}
+		else if ((pile + i)->index > sec_biggest.index && (pile + i)->index != EMPTY)
+			sec_biggest = pile[i];
+		i++;
+	}
+	return (sec_biggest);
 }
 
 t_elem	find_smallest(t_pushSwap piles, t_elem *pile)
@@ -107,6 +133,8 @@ t_elem	find_nearest(t_pushSwap piles, t_elem *pile, t_numbers numbers)
 	t_elem	not_found;
 
 	i = 0;
+	while (i < piles.size && (pile + i)->index == EMPTY)
+		i++;
 	j = piles.size - 1;
 	while (i < piles.size)
 	{
@@ -117,19 +145,13 @@ t_elem	find_nearest(t_pushSwap piles, t_elem *pile, t_numbers numbers)
 
 		else if (i + 1 < piles.size && (pile + i + 1)->index != EMPTY && (pile + i + 1)->index == (numbers.smallest).index)
 			return (numbers.smallest);
-		else if (j - 1 >= 0 && (pile + j + 1)->index != EMPTY && (pile + j + 1)->index == (numbers.smallest).index)
+		else if (j - 1 >= 0 && (pile + j - 1)->index != EMPTY && (pile + j - 1)->index == (numbers.smallest).index)
 			return (numbers.smallest);
 
-		if ((pile + i)->index != EMPTY && (pile + i)->index == (numbers.sec_smallest).index)
+		else if ((pile + i)->index != EMPTY && (pile + i)->index == (numbers.sec_smallest).index)
 			return (numbers.sec_smallest);
 		else if ((pile + j)->index != EMPTY && (pile + j)->index == (numbers.sec_smallest).index)
 			return (numbers.sec_smallest);
-			
-			
-		// else if ((pile + i)->index != EMPTY && (pile + i)->index == (numbers.biggest).index)
-		// 	return (numbers.biggest);
-		// else if ((pile + j)->index != EMPTY && (pile + j)->index == (numbers.biggest).index)
-		// 	return (numbers.biggest);
 			
 		i++;
 		j--;
@@ -156,7 +178,7 @@ t_elem	find_closest_one(t_pushSwap piles, t_elem *pile, long a, long b)
 		else if ((pile + j)->index != EMPTY && ((pile + j)->index == a || (pile + j)->index == b))
 			return (pile[j]);
 		i++;
-		j++;
+		j--;
 	}
 	not_found.index = EMPTY;
 	not_found.nbr = EMPTY;

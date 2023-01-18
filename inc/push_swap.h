@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/17 18:31:47 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:57:02 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,22 @@
 
 # define EMPTY 4815162342
 
-# define DIR_UP 0
-# define DIR_DOWN 1
+# define NONE -42
+
+# define SA 0
+# define SB 1
+# define SS 2
+
+# define PA 3
+# define PB 4
+
+# define RA 5
+# define RB 6
+# define RR 7
+
+# define RRA 8
+# define RRB 9
+# define RRR 10
 
 typedef struct s_elem
 {
@@ -39,11 +53,18 @@ typedef struct s_bloc
 	t_elem	nearest;
 }			t_bloc;
 
+typedef struct s_operation
+{
+	int					operation;
+	struct s_operation	*next;
+}						t_operation;
+
 typedef struct s_pushSwap
 {
-	t_elem	*a;
-	t_elem	*b;
-	int		size;
+	t_elem		*a;
+	t_elem		*b;
+	int			size;
+	t_operation	*operations;
 }			t_pushSwap;
 
 typedef struct s_numbers
@@ -52,6 +73,7 @@ typedef struct s_numbers
 	t_elem	smallest;
 	t_elem	sec_smallest;
 	t_elem	biggest;
+	t_elem	sec_biggest;
 	t_elem	ontop;
 }			t_numbers;
 
@@ -89,4 +111,16 @@ void		actions_smallest_on_top_a(t_pushSwap piles);
 void		actions_biggest_on_top_a(t_pushSwap piles);
 t_elem		find_nearest_inrange(t_pushSwap piles, t_elem *pile, long min, long max);
 t_elem		find_closest_one(t_pushSwap piles, t_elem *pile, long a, long b);
+t_elem		find_sec_biggest(t_pushSwap piles, t_elem *pile);
+
+
+t_operation *new_operation(t_pushSwap piles, int operation);
+void		free_operations(t_pushSwap piles);
+void		print_operations(t_pushSwap piles);
+
+
+
+
+
+
 #endif
