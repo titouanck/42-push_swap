@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:43:00 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 17:51:20 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:15:51 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ static t_elem	*get_numbers_a(char **args, int sz)
 		j = 0;
 		while (args[i][j])
 		{
-			if (j == 0 && (args[i][j] == '+' || args[i][j] == '-'))
-				j = j;
-			else if (!ft_isdigit(args[i][j]))
+			if (!(j == 0 && (args[i][j] == '+' || args[i][j] == '-')) && (!ft_isdigit(args[i][j])))
 				return (ft_printf(ERR_WRONGTYPEARGS), free(tab), NULL);
 			j++;
 		}

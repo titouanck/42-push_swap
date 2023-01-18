@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 19:09:27 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:14:15 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void		algorithm(t_pushSwap piles);
 
 // define_bloc.c
 t_bloc		define_bloc_down(t_pushSwap piles, int nbr);
-t_bloc		define_bloc_up(t_pushSwap piles, int nbr, t_bloc bloc_down);
+t_bloc		define_bloc_up(int nbr, t_bloc bloc_down);
 
 // define_properties.c
 t_numbers	define_properties(t_pushSwap piles, t_elem *pile);

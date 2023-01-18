@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:37:16 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 18:55:27 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:14:27 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	algo_blocs(t_pushSwap piles, int nbr)
 	t_numbers	numbers_b;
 
 	bloc_down = define_bloc_down(piles, nbr);
-	bloc_up = define_bloc_up(piles, nbr, bloc_down);
+	bloc_up = define_bloc_up(nbr, bloc_down);
 	while (pile_size(piles, piles.a) > 0)
 		algo_bloc_part1(piles, nbr, &bloc_up, &bloc_down);
 	while (pile_size(piles, piles.b) > 0)
