@@ -38,7 +38,7 @@ NUMBERS = ${1000_NUMBERS}
 
 EXEC = push_swap
 CC = cc
-CFLAGS =# -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 .c.o:
 		${CC} ${CFLAGS} ${INC} -c $< -o ${<:.c=.o}
