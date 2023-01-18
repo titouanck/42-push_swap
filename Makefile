@@ -239,4 +239,6 @@ fclean:	clean;
 re:	fclean all
 
 norminette:
+		clear
 		norminette srcs/
+		norminette inc/

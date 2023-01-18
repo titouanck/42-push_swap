@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:20 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 16:51:34 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:52:35 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
-# include <stdio.h>
 
 # define ERR_ALLOC "push_swap: failed to allocate memory.\n"
 # define ERR_WRONGTYPEARGS "push_swap: wrong type of arguments.\n"
@@ -22,6 +21,7 @@
 
 # define EMPTY 4815162342
 
+/* Operations are stored in a linked list of integers */
 # define NONE -42
 
 # define SA 0
@@ -125,5 +125,7 @@ t_pushSwap	duplicate_piles(t_pushSwap piles);
 
 
 int			count_operations(t_pushSwap piles);
+
+t_numbers	define_properties(t_pushSwap piles, t_elem *pile);
 
 #endif

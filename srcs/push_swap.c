@@ -6,102 +6,11 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:04 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 16:53:55 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:50:02 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	count_operations(t_pushSwap piles)
-{
-	int			nbr;
-	t_operation	*current;
-
-	nbr = 0;
-	current = piles.operations;
-	while (current)
-	{
-		if (current->operation != NONE)
-			nbr++;
-		current = current->next;
-	}
-	return (nbr);
-}
-
-void	print_operations(t_pushSwap piles)
-{
-	t_operation	*current;
-
-	current = piles.operations;
-	while (current)
-	{
-		if (current->operation == SA)
-			ft_printf("sa\n");
-		else if (current->operation == SB)
-			ft_printf("sb\n");
-		else if (current->operation == SS)
-			ft_printf("ss\n");
-		else if (current->operation == PA)
-			ft_printf("pa\n");
-		else if (current->operation == PB)
-			ft_printf("pb\n");
-		else if (current->operation == RA)
-			ft_printf("ra\n");
-		else if (current->operation == RB)
-			ft_printf("rb\n");
-		else if (current->operation == RR)
-			ft_printf("rr\n");
-		else if (current->operation == RRA)
-			ft_printf("rra\n");
-		else if (current->operation == RRB)
-			ft_printf("rrb\n");
-		else if (current->operation == RRR)
-			ft_printf("rrr\n");
-		current = current->next;
-	}
-}
-
-void	free_operations(t_pushSwap piles)
-{
-	t_operation	*current;
-	t_operation	*tmp;
-
-	current = piles.operations;
-	while (current)
-	{
-		tmp = current;
-		current = current->next;
-		free(tmp);
-	}
-}
-
-static void	actions_err_alloc_operation(t_pushSwap piles)
-{
-	free_operations(piles);
-	free(piles.a);
-	free(piles.b);
-	free(piles.original_a);
-	free(piles.original_b);
-	ft_printf(ERR_ALLOC);
-	exit(1);
-}
-
-t_operation *new_operation(t_pushSwap piles, int operation)
-{
-	t_operation	*current;
-
-	current = piles.operations;
-	if (!current)
-		actions_err_alloc_operation(piles);
-	while (current->next)
-		current = current->next;
-	current->next = malloc(sizeof(t_operation));
-	if (!(current->next))
-		actions_err_alloc_operation(piles);
-	current->next->operation = operation;
-	current->next->next = NULL;
-	return (current->next);
-}
 
 void	reset_piles(t_pushSwap piles)
 {
@@ -132,7 +41,7 @@ void	reset_piles(t_pushSwap piles)
 t_pushSwap	duplicate_piles(t_pushSwap piles)
 {
 	int	i;
-	
+
 	piles.original_a = malloc(sizeof(t_elem) * piles.size);
 	if (!(piles.original_a))
 		return (ft_printf(ERR_ALLOC), piles);
@@ -151,7 +60,6 @@ t_pushSwap	duplicate_piles(t_pushSwap piles)
 		i++;
 	}
 	return (piles);
-	
 }
 
 static int	push_swap(char **args, int size)

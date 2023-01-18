@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:57:40 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 17:14:35 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:25:41 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,25 +180,3 @@ void	algorithm(t_pushSwap piles)
 	free(piles.a);
 	free(piles.b);
 }
-
-// void	algorithm(t_pushSwap piles)
-// {
-// 	long		median;
-
-// 	if (pile_size(piles, piles.a) == 0 || pile_size(piles, piles.a) == 1)
-// 		return ;
-// 	else if (pile_size(piles, piles.a) == 2)
-// 		algo_2_elements_a(piles);
-// 	else if (pile_size(piles, piles.a) == 3)
-// 		algo_3_elements_a(piles);
-// 	else if (pile_size(piles, piles.a) < 20)
-// 		algo_19_elements_a(piles);
-// 	else if (pile_size(piles, piles.a) < 30)
-// 		algo_blocs(piles, 10);
-// 	else if (pile_size(piles, piles.a) < 150)
-// 		algo_blocs(piles, 15);
-// 	else
-// 		algo_blocs(piles, 30);
-// 	free(piles.a);
-// 	free(piles.b);
-// }

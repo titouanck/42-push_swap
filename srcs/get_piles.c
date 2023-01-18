@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:43:00 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/10 18:45:05 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:51:20 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static void	define_index(t_pushSwap piles)
 	long	last_nbr;
 	long	last_index;
 
-	
 	j = 0;
 	while (j < piles.size)
 	{
@@ -74,7 +73,8 @@ static void	define_index(t_pushSwap piles)
 		i = 0;
 		while (i < piles.size)
 		{
-			if (((piles.a) + i)->index == EMPTY && ((piles.a) + i)->nbr < last_nbr)
+			if (((piles.a) + i)->index == EMPTY
+				&& ((piles.a) + i)->nbr < last_nbr)
 			{
 				last_nbr = ((piles.a) + i)->nbr;
 				last_index = i;
@@ -84,7 +84,6 @@ static void	define_index(t_pushSwap piles)
 		((piles.a) + last_index)->index = j;
 		j++;
 	}
-	
 }
 
 static int	check_duplicate(t_elem *tab, int size)

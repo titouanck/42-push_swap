@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:05:50 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/10 18:38:44 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:49:34 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	print_piles(t_pushSwap piles)
 
 	i = 0;
 	ft_printf("---===---\n");
-	while (i < piles.size && ((piles.a) + i)->nbr == EMPTY && ((piles.b) + i)->nbr == EMPTY)
-			i++;
+	while (i < piles.size && ((piles.a) + i)->nbr == EMPTY
+		&& ((piles.b) + i)->nbr == EMPTY)
+		i++;
 	while (i < piles.size)
 	{
 		if (((piles.a) + i)->nbr != EMPTY)

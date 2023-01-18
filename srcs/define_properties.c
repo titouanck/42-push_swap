@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pile_sorted.c                                      :+:      :+:    :+:   */
+/*   define_properties.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 15:36:21 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 17:50:32 by tchevrie         ###   ########.fr       */
+/*   Created: 2023/01/18 17:52:46 by tchevrie          #+#    #+#             */
+/*   Updated: 2023/01/18 17:52:53 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	pile_sorted(t_pushSwap piles, t_elem *pile)
+t_numbers	define_properties(t_pushSwap piles, t_elem *pile)
 {
-	int	i;
+	t_numbers	numbers;
 
-	i = 0;
-	while (i < piles.size)
-	{
-		if ((pile + i)->index != EMPTY)
-			break ;
-		i++;
-	}
-	while (i < piles.size)
-	{			
-		i++;
-		if (i < piles.size && (pile + i)->index < (pile + i - 1)->index)
-			return (0);
-	}
-	return (1);
+	numbers.smallest = find_smallest(piles, pile);
+	numbers.sec_smallest = find_sec_smallest(piles, pile);
+	numbers.biggest = find_biggest(piles, pile);
+	numbers.sec_biggest = find_sec_biggest(piles, pile);
+	numbers.ontop = find_ontop(piles, pile);
+	numbers.nearest = find_nearest(piles, pile, numbers);
+	return (numbers);
 }
