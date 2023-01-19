@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:43:00 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 19:22:43 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 01:53:00 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ static t_elem	*get_numbers_a(char **args, int sz)
 				return (ft_printf(ERR_WRONGTYPEARGS), free(tab), NULL);
 			j++;
 		}
-		(tab + i)->nbr = ft_atoi(args[i]);
+		(tab + i)->nbr = ft_atoi_long(args[i]);
 		(tab + i)->index = EMPTY;
+		if ((tab + i)->nbr == EMPTY)
+			return (ft_printf(ERR_BIGGERTHANINT), free(tab), NULL);
 		i++;
 	}
 	return (tab);

@@ -1,7 +1,8 @@
 SRCS =	srcs/actions.c		srcs/algo_blocs.c	srcs/algorithm.c	srcs/define_bloc.c		srcs/define_properties.c	\
 		srcs/find.c			srcs/find_nearest.c	srcs/get_piles.c	srcs/mini_algos.c		srcs/on_top.c	\
 		srcs/operations.c	srcs/pile_size.c	srcs/pile_sorted.c	srcs/print_operations.c	srcs/print_piles.c	\
-		srcs/push.c			srcs/push_swap.c	srcs/rev_rotate.c	srcs/rotate.c			srcs/swap.c
+		srcs/push.c			srcs/push_swap.c	srcs/rev_rotate.c	srcs/rotate.c			srcs/swap.c \
+		srcs/ft_atoi_long.c
 
 OBJS = ${SRCS:.c=.o}
 DEPS = ${SRCS:.c=.d}
@@ -250,11 +251,11 @@ test_macos: all
 	echo "100 (5): " >> .test_results
 	./push_swap ${100_NUMBERS_5} | ./checker_Mac ${100_NUMBERS_5} | tr '\n' '\t'>> .test_results
 	./push_swap ${100_NUMBERS_5} | wc -l >> .test_results
+	echo "" >> .test_results
 
 	echo "100 (6): " >> .test_results
 	./push_swap ${100_NUMBERS_6} | ./checker_Mac ${100_NUMBERS_6} | tr '\n' '\t'>> .test_results
 	./push_swap ${100_NUMBERS_6} | wc -l >> .test_results
-	echo "" >> .test_results
 	echo "" >> .test_results
 
 	echo "100 (7): " >> .test_results

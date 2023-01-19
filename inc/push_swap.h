@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 19:14:15 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 01:49:30 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include "libft.h"
 
-# define ERR_ALLOC "push_swap: failed to allocate memory.\n"
-# define ERR_WRONGTYPEARGS "push_swap: wrong type of arguments.\n"
-# define ERR_DUPLICATEARGS "push_swap: duplicate arguments.\n"
+# define ERR_ALLOC "Error: failed to allocate memory.\n"
+# define ERR_WRONGTYPEARGS "Error: wrong type of arguments.\n"
+# define ERR_DUPLICATEARGS "Error: duplicate arguments.\n"
+# define ERR_BIGGERTHANINT "Error: argument does not fit in an int.\n"
 
 # define EMPTY 4815162342
 
@@ -131,6 +132,9 @@ find_nearest_inrange(t_pushSwap piles, t_elem *pile, long min, long max);
 
 // get_piles.c
 t_pushSwap	get_piles(char **args, int size);
+
+// ft_atoi_long.c
+long		ft_atoi_long(const char *str);
 
 // mini_algos.c
 void		algo_2_elements_a(t_pushSwap piles);
