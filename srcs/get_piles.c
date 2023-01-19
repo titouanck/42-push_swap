@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:43:00 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 01:53:00 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 02:00:10 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_elem	*get_numbers_a(char **args, int sz)
 
 	tab = malloc(sizeof(t_elem) * sz);
 	if (!tab)
-		return (ft_printf(ERR_ALLOC), NULL);
+		return (ft_putstr_fd(ERR_ALLOC, 2), NULL);
 	i = 0;
 	while (i < sz)
 	{
@@ -29,13 +29,13 @@ static t_elem	*get_numbers_a(char **args, int sz)
 		{
 			if (!(j == 0 && (args[i][j] == '+' || args[i][j] == '-'))
 				&& (!ft_isdigit(args[i][j])))
-				return (ft_printf(ERR_WRONGTYPEARGS), free(tab), NULL);
+				return (ft_putstr_fd(ERR_WRONGTYPEARGS, 2), free(tab), NULL);
 			j++;
 		}
 		(tab + i)->nbr = ft_atoi_long(args[i]);
 		(tab + i)->index = EMPTY;
 		if ((tab + i)->nbr == EMPTY)
-			return (ft_printf(ERR_BIGGERTHANINT), free(tab), NULL);
+			return (ft_putstr_fd(ERR_BIGGERTHANINT, 2), free(tab), NULL);
 		i++;
 	}
 	return (tab);
@@ -48,7 +48,7 @@ static t_elem	*get_numbers_b(int size)
 
 	tab = malloc(sizeof(t_elem) * size);
 	if (!tab)
-		return (ft_printf(ERR_ALLOC), NULL);
+		return (ft_putstr_fd(ERR_ALLOC, 2), NULL);
 	i = 0;
 	while (i < size)
 	{
@@ -117,7 +117,7 @@ t_pushSwap	get_piles(char **args, int size)
 		return (piles);
 	if (!check_duplicate(piles.a, size))
 	{
-		ft_printf(ERR_DUPLICATEARGS);
+		ft_putstr_fd(ERR_DUPLICATEARGS, 2);
 		free(piles.a);
 		piles.a = NULL;
 		return (piles);

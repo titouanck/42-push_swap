@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:04 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 19:06:18 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 02:02:42 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ t_pushSwap	duplicate_piles(t_pushSwap piles)
 
 	piles.original_a = malloc(sizeof(t_elem) * piles.size);
 	if (!(piles.original_a))
-		return (ft_printf(ERR_ALLOC), piles);
+		return (ft_putstr_fd(ERR_ALLOC, 2), piles);
 	piles.original_b = malloc(sizeof(t_elem) * piles.size);
 	if (!(piles.original_b))
 	{
 		free(piles.original_a);
 		piles.original_a = NULL;
-		return (ft_printf(ERR_ALLOC), piles);
+		return (ft_putstr_fd(ERR_ALLOC, 2), piles);
 	}
 	i = 0;
 	while (i < piles.size)
@@ -73,12 +73,13 @@ static int	push_swap(char **args, int size)
 	piles.operations = malloc(sizeof(t_operation));
 	if (!(piles.operations))
 	{
-		ft_printf(ERR_ALLOC);
+		ft_putstr_fd(ERR_ALLOC, 2);
 		return (free(piles.a), free(piles.b), 0);
 	}
 	piles.operations->operation = NONE;
 	piles.operations->next = NULL;
-	algorithm(piles);
+	if (!pile_sorted(piles, piles.a))
+		algorithm(piles);
 	print_operations(piles);
 	free_operations(piles);
 	return (free(piles.original_a), free(piles.original_b), 1);

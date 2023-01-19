@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:45:03 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 17:52:21 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 02:00:30 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	actions_err_alloc_operation(t_pushSwap piles)
 	free(piles.b);
 	free(piles.original_a);
 	free(piles.original_b);
-	ft_printf(ERR_ALLOC);
+	ft_putstr_fd(ERR_ALLOC, 2);
 	exit(1);
 }
 
