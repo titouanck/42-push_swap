@@ -2,7 +2,7 @@ SRCSALL =	srcs/actions.c		srcs/algo_blocs.c	srcs/algorithm.c	srcs/define_bloc.c	
 			srcs/find.c			srcs/find_nearest.c	srcs/get_piles.c	srcs/mini_algos.c		srcs/on_top.c	\
 			srcs/operations.c	srcs/pile_size.c	srcs/pile_sorted.c	srcs/print_operations.c	srcs/print_piles.c	\
 			srcs/push.c			srcs/set_piles.c	srcs/rev_rotate.c	srcs/rotate.c			srcs/swap.c \
-			srcs/ft_atoi_long.c	srcs/check_arguments_size.c  
+			srcs/ft_atoi_long.c	srcs/optimise_operations.c				srcs/check_arguments_size.c  
 
 SRCS = ${SRCSALL} srcs/push_swap.c
 OBJS = ${SRCS:.c=.o}
@@ -214,6 +214,15 @@ test: all
 	clear
 	cat .test_results
 	rm -f ${OBJS} ${NAME} .test_results
+
+500:	all
+		echo "500 (2): " > .test_results
+		./push_swap ${500_NUMBERS_2} | ./assets/checker_Mac ${500_NUMBERS_2} | tr '\n' '\t'>> .test_results
+		./push_swap ${500_NUMBERS_2} | wc -l >> .test_results
+		echo "" >> .test_results
+		clear
+		cat .test_results
+		rm -f .test_results
 
 test_macos: all
 	echo "=======> RESULTS <=======" > .test_results

@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 13:39:04 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 02:28:05 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 23:34:07 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	push_swap(char **args, int size)
 	piles.operations->next = NULL;
 	if (!pile_sorted(piles, piles.a))
 		algorithm(piles);
+	optimise_operations(piles);
 	print_operations(piles);
 	free_operations(piles);
 	return (free(piles.original_a), free(piles.original_b), 1);
