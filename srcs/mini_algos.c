@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:22:13 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 03:36:37 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:39:36 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	algo_250_elements_a(t_pushSwap piles)
 	while (i < piles.size / 2 - 1)
 	{
 		algo_blocs(piles, i);
+		optimise_operations(piles);
 		count = count_operations(piles);
 		if (count < best_count)
 		{
@@ -106,6 +107,7 @@ void	algo_750_elements_a(t_pushSwap piles)
 	while (i < piles.size / 12)
 	{
 		algo_blocs(piles, i);
+		optimise_operations(piles);
 		count = count_operations(piles);
 		if (count < best_count)
 		{

@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 23:34:31 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:47:06 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,5 +178,8 @@ t_pushSwap	duplicate_piles(t_pushSwap piles);
 
 // optimise_operations.c
 void		optimise_operations(t_pushSwap piles);
+
+// ICICICICICICIC ???????????????????
+t_elem		find_sec_ontop(t_pushSwap piles, t_elem *pile);
 
 #endif

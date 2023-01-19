@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:05:05 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 17:54:31 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/20 00:46:32 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,23 @@ t_elem	find_ontop(t_pushSwap piles, t_elem *pile)
 	notfound.nbr = EMPTY;
 	return (notfound);
 }
+
+// t_elem	find_sec_ontop(t_pushSwap piles, t_elem *pile)
+// {
+// 	int		i;
+// 	t_elem	notfound;
+
+// 	i = 0;
+// 	while (i + 1 < piles.size)
+// 	{
+// 		if ((pile + i)->index != EMPTY && (pile + i + 1)->index != EMPTY)
+// 			return (pile[i + 1]);
+// 		i++;
+// 	}
+// 	notfound.index = EMPTY;
+// 	notfound.nbr = EMPTY;
+// 	return (notfound);
+// }
 
 t_elem	find_biggest(t_pushSwap piles, t_elem *pile)
 {
