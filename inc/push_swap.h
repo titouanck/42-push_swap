@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 01:49:30 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 02:07:10 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 # include "libft.h"
 
-# define ERR_ALLOC "Error: failed to allocate memory.\n"
-# define ERR_WRONGTYPEARGS "Error: wrong type of arguments.\n"
-# define ERR_DUPLICATEARGS "Error: duplicate arguments.\n"
-# define ERR_BIGGERTHANINT "Error: argument does not fit in an int.\n"
+// # define ERR_ALLOC "Error: failed to allocate memory.\n"
+// # define ERR_WRONGTYPEARGS "Error: wrong type of arguments.\n"
+// # define ERR_DUPLICATEARGS "Error: duplicate arguments.\n"
+// # define ERR_BIGGERTHANINT "Error: argument does not fit in an int.\n"
+
+# define ERR_ALLOC "Error\n"
+# define ERR_WRONGTYPEARGS "Error\n"
+# define ERR_DUPLICATEARGS "Error\n"
+# define ERR_BIGGERTHANINT "Error\n"
 
 # define EMPTY 4815162342
 
