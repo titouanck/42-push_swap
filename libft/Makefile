@@ -19,8 +19,11 @@ SRCSPRINTF =	ft_printf/ft_printf.c ft_printf/ft_putadress.c ft_printf/ft_putchar
 				ft_printf/ft_puthexa_lower.c ft_printf/ft_puthexa_upper.c ft_printf/ft_putnbr.c \
 				ft_printf/ft_putstr.c ft_printf/ft_putunbr.c
 
+# GET_NEXT_LINE
+SRCSGETNEXTLINE = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+
 # Makefile
-SRCSALL = ${SRCSLIBFT} ${SRCSPRINTF}
+SRCSALL = ${SRCSLIBFT} ${SRCSPRINTF} ${SRCSGETNEXTLINE}
 OBJS = ${SRCSALL:.c=.o}
 DEPS = ${SRCSALL:.c=.d}
 

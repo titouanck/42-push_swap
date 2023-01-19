@@ -1,9 +1,10 @@
-SRCS =	srcs/actions.c		srcs/algo_blocs.c	srcs/algorithm.c	srcs/define_bloc.c		srcs/define_properties.c	\
+SRCSALL =	srcs/actions.c		srcs/algo_blocs.c	srcs/algorithm.c	srcs/define_bloc.c		srcs/define_properties.c	\
 		srcs/find.c			srcs/find_nearest.c	srcs/get_piles.c	srcs/mini_algos.c		srcs/on_top.c	\
 		srcs/operations.c	srcs/pile_size.c	srcs/pile_sorted.c	srcs/print_operations.c	srcs/print_piles.c	\
-		srcs/push.c			srcs/push_swap.c	srcs/rev_rotate.c	srcs/rotate.c			srcs/swap.c \
+		srcs/push.c			srcs/set_piles.c	srcs/rev_rotate.c	srcs/rotate.c			srcs/swap.c \
 		srcs/ft_atoi_long.c
 
+SRCS = ${SRCSALL} srcs/push_swap.c
 OBJS = ${SRCS:.c=.o}
 DEPS = ${SRCS:.c=.d}
 
@@ -13,26 +14,38 @@ LIBS = ${INC} ${LIBFTPATH}
 
 # NUMBERS = 3 1 2 4
 
-EXEC = push_swap
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 .c.o:
 		${CC} ${CFLAGS} ${INC} -MMD -c $< -o ${<:.c=.o}
 
-${EXEC}:	${OBJS} 
+${NAME}:	${OBJS} 
 		+$(MAKE) -C libft
-		cc -o ${EXEC} ${CFLAGS} ${OBJS} ${LIBS}
+		cc -o ${NAME} ${CFLAGS} ${OBJS} ${LIBS}
 
-all:	${EXEC}
+all:	${NAME}
 
 clean:	
 		+$(MAKE) -C libft clean
-		rm -f ${OBJS} ${DEPS}
+		rm -f ${OBJS} ${DEPS} {OBJSBONUS} ${DEPSBONUS}
 
 fclean:	clean;
 		+$(MAKE) -C libft fclean
-		rm -f ${EXEC}
+		rm -f ${NAME} ${BONUS}
+
+SRCSBONUS =	${SRCSALL} srcs/checker_bonus.c
+
+OBJSBONUS = ${SRCSBONUS:.c=.o}
+DEPSBONUS = ${SRCSBONUS:.c=.d}
+BONUS = checker
+
+${BONUS}:	${OBJSBONUS} 
+		+$(MAKE) -C libft
+		cc -o ${BONUS} ${CFLAGS} ${OBJSBONUS} ${LIBS}
+
+bonus:	${BONUS}
 
 re:	fclean all
 
@@ -81,13 +94,13 @@ run: all
 	./push_swap ${NUMBERS}
 	./push_swap ${NUMBERS} | ./checker_linux ${NUMBERS}
 	./push_swap ${NUMBERS} | wc -l
-	rm -f ${OBJS} ${EXEC}
+	rm -f ${OBJS} ${NAME}
 
 run_macos: all
 	./push_swap ${NUMBERS}
 	./push_swap ${NUMBERS} | ./checker_Mac ${NUMBERS}
 	./push_swap ${NUMBERS} | wc -l
-	rm -f ${OBJS} ${EXEC}
+	rm -f ${OBJS} ${NAME}
 
 test: all
 	echo "=======> RESULTS <=======" > .test_results
@@ -194,7 +207,7 @@ test: all
 
 	clear
 	cat .test_results
-	rm -f ${OBJS} ${EXEC} .test_results
+	rm -f ${OBJS} ${NAME} .test_results
 
 test_macos: all
 	echo "=======> RESULTS <=======" > .test_results
@@ -279,4 +292,4 @@ test_macos: all
 	echo "" >> .test_results
 	clear
 	cat .test_results
-	rm -f ${OBJS} ${EXEC} .test_results
+	rm -f ${OBJS} ${NAME} .test_results

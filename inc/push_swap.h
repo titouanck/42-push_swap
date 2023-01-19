@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 02:07:10 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 02:26:27 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void		print_operations(t_pushSwap piles);
 // print_piles.c
 void		print_piles(t_pushSwap piles);
 
-// push_swap.c
+// set_piles.c
 void		reset_piles(t_pushSwap piles);
 t_pushSwap	duplicate_piles(t_pushSwap piles);
 
