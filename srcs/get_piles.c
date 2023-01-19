@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:43:00 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 02:00:10 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 03:25:59 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static int	check_duplicate(t_elem *tab, int size)
 		while (j < size)
 		{
 			if ((tab + i)->nbr == (tab + j)->nbr)
-				return (0);
+				return (ft_putstr_fd(ERR_DUPLICATEARGS, 2), 0);
 			j++;
 		}
 		i++;
@@ -115,9 +115,8 @@ t_pushSwap	get_piles(char **args, int size)
 	piles.a = get_numbers_a(args, size);
 	if (!piles.a)
 		return (piles);
-	if (!check_duplicate(piles.a, size))
+	if (!check_arguments_size(args, size) || !check_duplicate(piles.a, size))
 	{
-		ft_putstr_fd(ERR_DUPLICATEARGS, 2);
 		free(piles.a);
 		piles.a = NULL;
 		return (piles);

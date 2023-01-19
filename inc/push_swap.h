@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 02:26:27 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 03:27:41 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,9 @@ find_nearest_inrange(t_pushSwap piles, t_elem *pile, long min, long max);
 
 // get_piles.c
 t_pushSwap	get_piles(char **args, int size);
+
+// check_arguments_size.c
+int			check_arguments_size(char **args, int size);
 
 // ft_atoi_long.c
 long		ft_atoi_long(const char *str);
