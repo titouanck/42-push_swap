@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:57:40 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 18:37:32 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 03:36:44 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	algorithm(t_pushSwap piles)
 		algo_3_elements_a(piles);
 	else if (pile_size(piles, piles.a) < 20)
 		algo_19_elements_a(piles);
-	else if (pile_size(piles, piles.a) < 101)
-		algo_100_elements_a(piles);
+	else if (pile_size(piles, piles.a) < 251)
+		algo_250_elements_a(piles);
 	else if (pile_size(piles, piles.a) < 751)
 		algo_750_elements_a(piles);
 	else

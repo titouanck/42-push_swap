@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:22:13 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/18 19:26:20 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 03:36:37 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	algo_19_elements_a(t_pushSwap piles)
 		push_a(piles);
 }
 
-void	algo_100_elements_a(t_pushSwap piles)
+void	algo_250_elements_a(t_pushSwap piles)
 {
 	long		i;
 	long		count;

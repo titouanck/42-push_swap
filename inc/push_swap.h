@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:59:28 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 03:27:41 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/19 03:36:56 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ long		ft_atoi_long(const char *str);
 void		algo_2_elements_a(t_pushSwap piles);
 void		algo_3_elements_a(t_pushSwap piles);
 void		algo_19_elements_a(t_pushSwap piles);
-void		algo_100_elements_a(t_pushSwap piles);
+void		algo_250_elements_a(t_pushSwap piles);
 void		algo_750_elements_a(t_pushSwap piles);
 
 // on_top.c
