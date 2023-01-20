@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 02:15:52 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/19 03:06:50 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/20 01:21:10 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,19 @@ static int	checker_push_swap(char **args, int size)
 	piles = duplicate_piles(piles);
 	piles.operations = malloc(sizeof(t_operation));
 	if (!(piles.operations))
-	{
-		ft_putstr_fd(ERR_ALLOC, 2);
-		return (free(piles.a), free(piles.b), 0);
-	}
+		return (ft_putstr_fd(ERR_ALLOC, 2), free(piles.a), free(piles.b), 0);
 	piles.operations->operation = NONE;
 	piles.operations->next = NULL;
 	if (!get_operations(piles))
 		ft_putstr_fd("Error\n", 2);
-	if (!pile_sorted(piles, piles.a) || pile_size(piles, piles.b) > 0)
+	else if (!pile_sorted(piles, piles.a) || pile_size(piles, piles.b) > 0)
 	{
 		ft_printf("KO\n");
 		free_operations(piles);
 		return (free(piles.original_a), free(piles.original_b), 0);
 	}
+	else
+		ft_printf("OK\n");
 	free_operations(piles);
 	return (free(piles.original_a), free(piles.original_b), 1);
 }
@@ -95,6 +94,5 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (!checker_push_swap(argv + 1, argc - 1))
 		return (1);
-	ft_printf("OK\n");
 	return (0);
 }
