@@ -93,7 +93,7 @@ NUMBERS = ${1000_NUMBERS}
 
 run: all
 	./push_swap ${NUMBERS}
-	./push_swap ${NUMBERS} | .assets/checker_linux ${NUMBERS}
+	./push_swap ${NUMBERS} | ./assets/checker_linux ${NUMBERS}
 	./push_swap ${NUMBERS} | wc -l
 	rm -f ${OBJS} ${NAME}
 
@@ -107,107 +107,107 @@ test: all
 	echo "=======> RESULTS <=======" > .test_results
 
 	echo -n "1\t|  " >> .test_results
-	./push_swap ${1_NUMBERS} | .assets/checker_linux ${1_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${1_NUMBERS} | ./assets/checker_linux ${1_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${1_NUMBERS} | wc -l >> .test_results
 
 	echo -n "2\t|  " >> .test_results
-	./push_swap ${2_NUMBERS} | .assets/checker_linux ${2_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${2_NUMBERS} | ./assets/checker_linux ${2_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${2_NUMBERS} | wc -l >> .test_results
 
 	echo -n "3\t|  " >> .test_results
-	./push_swap ${3_NUMBERS} | .assets/checker_linux ${3_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${3_NUMBERS} | ./assets/checker_linux ${3_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${3_NUMBERS} | wc -l >> .test_results
 
 	echo -n "4\t|  " >> .test_results
-	./push_swap ${4_NUMBERS} | .assets/checker_linux ${4_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${4_NUMBERS} | ./assets/checker_linux ${4_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${4_NUMBERS} | wc -l >> .test_results
 
 	echo -n "5\t|  " >> .test_results
-	./push_swap ${5_NUMBERS} | .assets/checker_linux ${5_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${5_NUMBERS} | ./assets/checker_linux ${5_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${5_NUMBERS} | wc -l >> .test_results
 
 	echo -n "10\t|  " >> .test_results
-	./push_swap ${10_NUMBERS} | .assets/checker_linux ${10_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${10_NUMBERS} | ./assets/checker_linux ${10_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${10_NUMBERS} | wc -l >> .test_results
 
 	echo -n "15\t|  " >> .test_results
-	./push_swap ${15_NUMBERS} | .assets/checker_linux ${15_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${15_NUMBERS} | ./assets/checker_linux ${15_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${15_NUMBERS} | wc -l >> .test_results
 
 	echo -n "20\t|  " >> .test_results
-	./push_swap ${20_NUMBERS} | .assets/checker_linux ${20_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${20_NUMBERS} | ./assets/checker_linux ${20_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${20_NUMBERS} | wc -l >> .test_results
 
 	echo -n "30\t|  " >> .test_results
-	./push_swap ${30_NUMBERS} | .assets/checker_linux ${30_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${30_NUMBERS} | ./assets/checker_linux ${30_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${30_NUMBERS} | wc -l >> .test_results
 
 	echo -n "50\t|  " >> .test_results
-	./push_swap ${50_NUMBERS} | .assets/checker_linux ${50_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${50_NUMBERS} | ./assets/checker_linux ${50_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${50_NUMBERS} | wc -l >> .test_results
 
 	echo -n "100 (1)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS} | .assets/checker_linux ${100_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS} | ./assets/checker_linux ${100_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS} | wc -l >> .test_results
 
 	echo -n "100 (2)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS_2} | .assets/checker_linux ${100_NUMBERS_2} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS_2} | ./assets/checker_linux ${100_NUMBERS_2} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS_2} | wc -l >> .test_results
 
 	echo -n "100 (3)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS_3} | .assets/checker_linux ${100_NUMBERS_3} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS_3} | ./assets/checker_linux ${100_NUMBERS_3} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS_3} | wc -l >> .test_results
 
 	echo -n "100 (4)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS_4} | .assets/checker_linux ${100_NUMBERS_4} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS_4} | ./assets/checker_linux ${100_NUMBERS_4} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS_4} | wc -l >> .test_results
 
 	echo -n "100 (5)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS_5} | .assets/checker_linux ${100_NUMBERS_5} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS_5} | ./assets/checker_linux ${100_NUMBERS_5} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS_5} | wc -l >> .test_results
 
 	echo -n "100 (6)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS_6} | .assets/checker_linux ${100_NUMBERS_6} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS_6} | ./assets/checker_linux ${100_NUMBERS_6} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS_6} | wc -l >> .test_results
 
 	echo -n "100 (7)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS_7} | .assets/checker_linux ${100_NUMBERS_7} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS_7} | ./assets/checker_linux ${100_NUMBERS_7} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS_7} | wc -l >> .test_results
 
 	echo -n "100 (8)\t|  " >> .test_results
-	./push_swap ${100_NUMBERS_8} | .assets/checker_linux ${100_NUMBERS_8} | tr '\n' ' '>> .test_results
+	./push_swap ${100_NUMBERS_8} | ./assets/checker_linux ${100_NUMBERS_8} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${100_NUMBERS_8} | wc -l >> .test_results
 
 	echo -n "500\t|  " >> .test_results
-	./push_swap ${500_NUMBERS} | .assets/checker_linux ${500_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${500_NUMBERS} | ./assets/checker_linux ${500_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${500_NUMBERS} | wc -l >> .test_results
 
 	echo -n "500 (2)\t|  " >> .test_results
-	./push_swap ${500_NUMBERS_2} | .assets/checker_linux ${500_NUMBERS_2} | tr '\n' ' '>> .test_results
+	./push_swap ${500_NUMBERS_2} | ./assets/checker_linux ${500_NUMBERS_2} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${500_NUMBERS_2} | wc -l >> .test_results
 
 	echo -n "1000\t|  " >> .test_results
-	./push_swap ${1000_NUMBERS} | .assets/checker_linux ${1000_NUMBERS} | tr '\n' ' '>> .test_results
+	./push_swap ${1000_NUMBERS} | ./assets/checker_linux ${1000_NUMBERS} | tr '\n' ' '>> .test_results
 	echo -n " | " >> .test_results
 	./push_swap ${1000_NUMBERS} | wc -l >> .test_results
 
