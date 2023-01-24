@@ -6,7 +6,7 @@
 /*   By: tchevrie <tchevrie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 18:57:40 by tchevrie          #+#    #+#             */
-/*   Updated: 2023/01/20 00:38:46 by tchevrie         ###   ########.fr       */
+/*   Updated: 2023/01/24 12:42:53 by tchevrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,4 @@ void	algorithm(t_pushSwap piles)
 		algo_750_elements_a(piles);
 	else
 		algo_blocs(piles, 50);
-	free(piles.a);
-	free(piles.b);
 }
